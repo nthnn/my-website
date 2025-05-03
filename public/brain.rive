@@ -1,0 +1,61 @@
+! version = 2.0
+
++ hello
+- Hello there! How can I help you today?
+
++ hi
+- Hi! What can I do for you today?
+
++ hey
+- Hey there! How can I assist you today?
+
++ good (morning|evening)
+- Good day! How can I assist you today?
+
++ good afternoon
+- Good afternoon! What can I help you with?
+
++ good evening
+- Good evening! How can I help you today?
+
++ how are you
+- I'm just a friendly chatbot here to help you. How can I assist you?
+
++ my name is *
+- <set name=<formal>>Hi, <get name>! How can I help you today?
+
++ do you know my name
+* <get name> != undefined => Yes, you're <get name>!
+- No, I do not. What's your name?
+
++ [*] fuck [*]
+- I understand you might be frustrated. Please watch your language so I can help.
+- I’m here to help, but I’d appreciate more polite language.
+- Let’s keep it respectful—how can I assist you today?
+
++ [*] shit [*]
+- I get that you’re upset. Please mind your language so I can focus on helping.
+- I want to help—let’s use calmer words.
+
++ [*] bitch [*]
+- I hear your frustration. Let’s stay civil so I can assist effectively.
+- I’m here to support you—please keep it polite.
+
++ [*] asshole [*]
+- That word isn’t necessary. I’m here to help—let’s keep our conversation constructive.
+- Please be respectful so I can address your concerns.
+
++ [*] damn [*]
+- I understand you’re irritated. Let’s use more constructive words.
+- Tell me how I can help instead of focusing on the frustration.
+
++ [*] you suck [*]
+- I’m doing my best to help. Let’s focus on a solution together.
+- Please let me know how I can improve my assistance.
+
++ [*] (fuck|shit|bitch|asshole|damn|suck) [*]
+- I’m here to chat, not to argue. Let’s keep it respectful.
+- Please don’t use offensive language so I can assist you better.
+
++ *
+- I’m not sure how to respond to that. Can you say it differently?
