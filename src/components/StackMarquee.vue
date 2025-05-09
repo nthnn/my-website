@@ -150,4 +150,18 @@ export default {
         transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
     }
 }
+
+@media only screen and (max-width: 771px) {
+    .marquee-content img {
+        width: 36px;
+    }
+
+    .marquee:before, .marquee:after {
+        width: 5.2rem;
+    }
+
+    .marquee:after {
+        right: -10px !important;
+    }
+}
 </style>
