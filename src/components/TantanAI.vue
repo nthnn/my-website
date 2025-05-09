@@ -294,8 +294,8 @@ function scrollToBottom() {
         position: fixed;
         bottom: 1rem;
         right: 1rem;
-        width: 3rem;
-        height: 3rem;
+        width: 2.2rem;
+        height: 2.2rem;
         font-size: 1.25rem;
         line-height: 3rem;
     }
