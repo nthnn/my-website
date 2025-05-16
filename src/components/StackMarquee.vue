@@ -37,6 +37,7 @@ export default {
                 <li><a target="_blank" href="https://www.typescriptlang.org/"><img src="@/assets/images/icons/ic-typescript.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.javascript.com/"><img src="@/assets/images/icons/ic-js.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.python.org/"><img src="@/assets/images/icons/ic-python.png" width="52" /></a></li>
+                <li><a target="_blank" href="https://godotengine.org/"><img src="@/assets/images/icons/ic-godot.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://ballerina.io/"><img src="@/assets/images/icons/ic-ballerina.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://jupyter.org/"><img src="@/assets/images/icons/ic-jupyter.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://git-scm.com/"><img src="@/assets/images/icons/ic-git.png" width="52" /></a></li>
@@ -44,6 +45,7 @@ export default {
                 <li><a target="_blank" href="https://github.com/"><img src="@/assets/images/icons/ic-github-actions.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.docker.com/"><img src="@/assets/images/icons/ic-docker.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://markdownguide.org/"><img src="@/assets/images/icons/ic-markdown.png" width="52" /></a></li>
+                <li><a target="_blank" href="https://www.rivescript.com/"><img src="@/assets/images/icons/ic-rivescript.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.php.net/"><img src="@/assets/images/icons/ic-php.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.mysql.com/"><img src="@/assets/images/icons/ic-mysql.png" width="52" /></a></li>
                 <li><a target="_blank" href="https://www.apachefriends.org/"><img src="@/assets/images/icons/ic-xampp.png" width="52" /></a></li>
