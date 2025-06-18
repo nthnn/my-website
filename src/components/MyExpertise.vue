@@ -7,7 +7,7 @@ const langs = ref<{
     percentage: number;
 }[]>([]);
 onMounted(async () => {
-    const response = await fetch("/performance.svg");
+    const response = await fetch("https://github-readme-stats.vercel.app/api/top-langs/?username=nthnn&layout=compact&theme=onedark&hide_border=true&title_color=e9ecef&text_color=e9ecef&bg_color=272b30&hide=html,css,batchfile,jupyter+notebook,shell,cmake&langs_count=20&size_weight=0.5&count_weight=0.5");
     if(!response.ok)
         return;
 
