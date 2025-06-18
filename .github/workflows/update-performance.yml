@@ -27,5 +27,5 @@ jobs:
         git config user.name "GitHub Actions"
         git config user.email "github-actions[bot]@users.noreply.github.com"
         git add public/performance.svg
-        git diff --cached --exit-code || git commit -m " chore(workflow): Update performance SVG"
+        git diff --cached --exit-code || git commit -m "Chore (workflow): Update performance SVG"
         git push
