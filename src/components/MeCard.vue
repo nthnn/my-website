@@ -49,7 +49,7 @@ function getCurrentAge(): number {
 
                 <hr/>
                 <pre class="code desktop-only"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
-                <p>{{getCurrentAge()}}-year-old experienced software engineer from Metro Manila, Philippines, with a strong foundation in leadership experience and customer service.</p>
+                <p>{{getCurrentAge()}}-year-old experienced software engineer from Metro Manila, Philippines, with a strong foundation in software engineering, leadership experience, and customer service.</p>
                 <pre class="code mobile-only w-100" align="center"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
             </div>
         </div>
