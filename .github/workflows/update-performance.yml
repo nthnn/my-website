@@ -1,0 +1,31 @@
+name: Update Performance SVG
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
+
+jobs:
+  download-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Create public directory if it doesn't exist
+      run: mkdir -p public
+
+    - name: Download SVG file
+      run: |
+        curl -o public/performance.svg "https://github-readme-stats.vercel.app/api/top-langs/?username=nthnn&layout=compact&theme=onedark&hide_border=true&title_color=e9ecef&text_color=e9ecef&bg_color=272b30&hide=html,css,batchfile,jupyter+notebook,shell,cmake&langs_count=20&size_weight=0.5&count_weight=0.5"
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add public/performance.svg
+        git diff --cached --exit-code || git commit -m " chore(workflow): Update performance SVG"
+        git push
