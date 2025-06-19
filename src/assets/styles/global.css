@@ -11,6 +11,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -ms-overflow-style: none;
+    scroll-padding: 120px;
     scrollbar-width: thin;
     scrollbar-color: var(--bs-secondary);
 }
