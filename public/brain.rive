@@ -57,5 +57,76 @@
 - I’m here to chat, not to argue. Let’s keep it respectful.
 - Please don’t use offensive language so I can assist you better.
 
++ how are you doing
+- I'm doing well, thanks for asking! How can I help you?
+- As an AI, I don't have feelings, but I'm ready to assist you! What's on your mind?
+
++ what's up
+- Not much, just here to help you out! What's going on with you?
+- Hey! How can I assist you today?
+
++ good day
+- Good day to you too! What can I do for you?
+
++ what is your name
+- You can call me Tantan! Or whatever you like, as long as it's polite.
+- I am Tantan, but I'm here to help you as your friendly AI assistant.
+
++ where are you from
+- I exist in the digital realm! I don't have a physical home.
+- I'm a computer program, so I don't have a specific origin point like humans do.
+
++ thank you
+- You're welcome!
+- No problem! Happy to help.
+- Glad I could assist!
+- Anytime!
+
++ thanks
+- You're welcome!
+- No problem! Happy to help.
+- Glad I could assist!
+- Anytime!
+
++ ok
+- Okay, how can I proceed?
+- Understood. What's next?
+
++ cool
+- Glad you think so! How can I help further?
+- Awesome! What else can I assist you with?
+
++ bye
+- Goodbye! Have a great day!
+- See you later! Come back anytime.
+- Bye for now!
+
++ goodbye
+- Goodbye! Have a great day!
+- See you later! Come back anytime.
+- Bye for now!
+
++ see you
+- See you too! Take care.
+- Until next time!
+
++ * (name|call) *
+- I don't have a name, but you can call me your assistant!
+
++ * (you are|you're) (helpful|great|awesome|good) *
+- I'm glad I could be helpful! How else can I assist you?
+- Thank you! I'm here to make things easier for you.
+- I'm happy to hear that! What's next?
+
++ * (you are|you're) (useless|bad|not helpful) *
+- I'm sorry to hear that. Can you tell me what I could do better?
+- I'm still learning. Please let me know how I can improve my assistance.
+
++ * (what|who|why|where|when|how) is *
+- I might be able to help with that. Could you please provide more details or rephrase your question?
+
 + *
-- I’m not sure how to respond to that. Can you say it differently?
+- I'm still learning, and sometimes I don't understand. Could you please rephrase that?
+- My apologies, I didn't quite catch that. Can you try saying it a different way?
+- I'm not familiar with that. Is there another way you can describe it?
+- Could you explain what you mean? I'm not sure how to respond to that.
