@@ -5,6 +5,12 @@ import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 import { hideLoadingBar } from "../scripts/loading.ts";
 import { onMounted } from "vue";
 
+import {
+    addParameter,
+    getParameters,
+    removeParameter
+} from "../scripts/params.ts";
+
 var clickImage = (e: HTMLElement)=> {
     e.dispatchEvent(new MouseEvent("click", {
         view: window,
@@ -35,6 +41,10 @@ function loadGallery() {
 
         gallery.classList.remove("d-none");
         gallery.classList.add("d-block");
+
+        const id = getParameters().get("id");
+        if(id && Number.isInteger(parseInt(id, 10)))
+            clickImage(document.getElementById("caption-" + id));
     };
 
     fetch("./database/gallery.json").then(response => {
@@ -86,7 +96,9 @@ function loadGallery() {
                     return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt +
                         "</p><small class=\"mt-0 pt-0 text-gray\">" +
                         img.getAttribute("date") + "</small>"
-                }
+                },
+                afterHide: ()=> removeParameter("id"),
+                onChange: (idx, _)=> addParameter("id", idx + 1)
             });
 
             hideLoadingBar(showGallery);
