@@ -17,5 +17,5 @@ export function hideLoadingBar(callback: ()=> VoidFunction) {
         loading.classList.add("d-none");
 
         callback();
-    }, 3000);
+    }, 2500);
 }
