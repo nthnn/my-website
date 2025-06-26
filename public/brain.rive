@@ -61,7 +61,7 @@
 - I'm doing well, thanks for asking! How can I help you?
 - As an AI, I don't have feelings, but I'm ready to assist you! What's on your mind?
 
-+ what's up
++ whats up
 - Not much, just here to help you out! What's going on with you?
 - Hey! How can I assist you today?
 
@@ -113,12 +113,12 @@
 + * (name|call) *
 - I don't have a name, but you can call me your assistant!
 
-+ * (you are|you're) (helpful|great|awesome|good) *
++ * (you are|youre) (helpful|great|awesome|good) *
 - I'm glad I could be helpful! How else can I assist you?
 - Thank you! I'm here to make things easier for you.
 - I'm happy to hear that! What's next?
 
-+ * (you are|you're) (useless|bad|not helpful) *
++ * (you are|youre) (useless|bad|not helpful) *
 - I'm sorry to hear that. Can you tell me what I could do better?
 - I'm still learning. Please let me know how I can improve my assistance.
 
