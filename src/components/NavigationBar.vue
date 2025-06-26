@@ -23,22 +23,19 @@ var pageData = reactive({
             <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="main-navbar">
                 <ul class="navbar-nav mx-auto nav-underline">
                     <li class="nav-item">
-                        <RouterLink to="/" class="nav-link nav-brand text-white desktop-only">Nathanne Isip</RouterLink>
+                        <RouterLink to="/" class="nav-link nav-brand text-white desktop-only" v-on:click="toggleBurger">Nathanne Isip</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/projects" v-bind:class="pageData.currentRoute == 'projects' ? 'nav-link active' : 'nav-link'">Projects</RouterLink>
+                        <RouterLink to="/projects" v-bind:class="pageData.currentRoute == 'projects' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Projects</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/gallery" v-bind:class="pageData.currentRoute == 'gallery' ? 'nav-link active' : 'nav-link'">Gallery</RouterLink>
+                        <RouterLink to="/gallery" v-bind:class="pageData.currentRoute == 'gallery' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Gallery</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/publications" v-bind:class="pageData.currentRoute == 'publications' ? 'nav-link active' : 'nav-link'">Publications</RouterLink>
+                        <RouterLink to="/blogs" v-bind:class="pageData.currentRoute == 'contacts' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Contacts</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/blogs" v-bind:class="pageData.currentRoute == 'contacts' ? 'nav-link active' : 'nav-link'">Contacts</RouterLink>
-                    </li>
-                    <li class="nav-item">
-                        <a target="_blank" href="https://github.com/nthnn" class="nav-link">GitHub</a>
+                        <a target="_blank" href="https://github.com/nthnn" class="nav-link" v-on:click="toggleBurger">GitHub</a>
                     </li>
                 </ul>
             </div>
