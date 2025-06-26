@@ -1,9 +1,6 @@
 name: Update Performance SVG
 
-on:
-  schedule:
-    - cron: '0 0 * * 0'
-  workflow_dispatch:
+on: [push]
 
 jobs:
   download-and-push:
