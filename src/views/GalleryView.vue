@@ -128,8 +128,8 @@ onMounted(() => loadGallery());
     <div id="gallery-loading" align="center">
         <br/>
 
-        <img src="/images/gear.png" class="rotating-gear" width="32" />
-        <p>Gallery is currently being loaded, please wait...</p>
+        <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
+        <p class="mt-3">Gallery is currently being loaded, please wait...</p>
         <br/>
     </div>
 
