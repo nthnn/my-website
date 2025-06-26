@@ -13,6 +13,8 @@
         "format": "prettier --write src/"
     },
     "dependencies": {
+        "animate.css": "^4.1.1",
+        "baguettebox.js": "^1.12.0",
         "bootstrap": "^5.3.5",
         "bootstrap-icons": "^1.11.3",
         "fa-icons": "^0.2.0",
@@ -33,7 +35,7 @@
         "eslint-plugin-vue": "^9.17.0",
         "npm-run-all2": "^6.0.6",
         "prettier": "^3.0.3",
-        "typescript": "~5.2.0",
+        "typescript": "5.4",
         "vite": "^6.3.3",
         "vue-tsc": "^2.0.29"
     }
