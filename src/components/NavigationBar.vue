@@ -28,6 +28,9 @@ var pageData = reactive({
                         <RouterLink to="/projects" v-bind:class="pageData.currentRoute == 'projects' ? 'nav-link active' : 'nav-link'">Projects</RouterLink>
                     </li>
                     <li class="nav-item">
+                        <RouterLink to="/gallery" v-bind:class="pageData.currentRoute == 'gallery' ? 'nav-link active' : 'nav-link'">Gallery</RouterLink>
+                    </li>
+                    <li class="nav-item">
                         <RouterLink to="/publications" v-bind:class="pageData.currentRoute == 'publications' ? 'nav-link active' : 'nav-link'">Publications</RouterLink>
                     </li>
                     <li class="nav-item">
