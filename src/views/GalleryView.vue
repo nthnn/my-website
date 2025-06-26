@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
+
+import { hideLoadingBar } from "../scripts/loading.ts";
 import { onMounted } from "vue";
 
 var clickImage = (e: HTMLElement)=> {
@@ -20,9 +22,26 @@ let reveal = ()=> {
 };
 
 function loadGallery() {
+    let showGallery = ()=> {
+        let gallery = document.getElementById(
+            "gallery"
+        ) as HTMLElement;
+        let galleryLoading = document.getElementById(
+            "gallery-loading"
+        ) as HTMLElement;
+
+        galleryLoading.classList.remove("d-block");
+        galleryLoading.classList.add("d-none");
+
+        gallery.classList.remove("d-none");
+        gallery.classList.add("d-block");
+    };
+
     fetch("./database/gallery.json").then(response => {
-        if(!response.ok)
+        if(!response.ok) {
+            hideLoadingBar(showGallery);
             throw new Error("Network response was not ok");
+        }
 
         return response.json();
     }).then((data: {src: string, caption: string, date: string}[]) => {
@@ -64,10 +83,13 @@ function loadGallery() {
                 noScrollBars: true,
                 captions: (elem)=> {
                     let img = elem.getElementsByTagName("img")[0];
-                    return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt + "</p><small class=\"mt-0 pt-0 text-gray\">" + img.getAttribute("date") + "</small>"
+                    return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt +
+                        "</p><small class=\"mt-0 pt-0 text-gray\">" +
+                        img.getAttribute("date") + "</small>"
                 }
             });
 
+            hideLoadingBar(showGallery);
             reveal();
         }
     })
@@ -77,21 +99,29 @@ function loadGallery() {
             errorMessage.classList.remove("d-none");
             errorMessage.classList.add("animate__animated", "animate__fadeIn");
         }
+
+        hideLoadingBar(showGallery);
     });
 
     document.addEventListener("scroll", reveal);
 }
 
-onMounted(() => {
-    loadGallery();
-});
+onMounted(() => loadGallery());
 </script>
 
 <template>
     <h1 align="center">Gallery</h1>
     <hr/>
 
-    <div id="gallery">
+    <div id="gallery-loading" align="center">
+        <br/>
+
+        <img src="/images/gear.png" class="rotating-gear" width="32" />
+        <p>Gallery is currently being loaded, please wait...</p>
+        <br/>
+    </div>
+
+    <div id="gallery" class="d-none" align="center">
         <div class="gallery-container"></div>
     </div>
 
@@ -210,6 +240,20 @@ figcaption {
     border-style: solid !important;
     border-width: 0px 0px 1px 0px !important;
     border-color: rgba(85, 89, 92, 0.5) !important;
+}
+
+.rotating-gear {
+  animation: rotate-gear 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes rotate-gear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes fade-bottom {
