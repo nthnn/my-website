@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
+import { onMounted } from "vue";
 
 var clickImage = (e: HTMLElement)=> {
     e.dispatchEvent(new MouseEvent("click", {
@@ -37,6 +38,7 @@ function loadGallery() {
                 "\" href=\"" + data[i]["src"] +
                 "\"><img class=\"img-fluid\" src=\"" + data[i]["src"] +
                 "\" alt=\"" + data[i]["caption"] +
+                "\" date=\"" + data[i]["date"] +
                 "\"/></a><span id=\"caption-span-" + capId +
                 "\" class=\"lead fw-bold gallery-caption\">" + data[i]["caption"] +
                 "</span><p class=\"date\">" + data[i]["date"] +
@@ -58,8 +60,12 @@ function loadGallery() {
             }
 
             baguetteBox.run(".gallery-container", {
-                animation: 'fadeIn',
+                animation: "slideIn",
                 noScrollBars: true,
+                captions: (elem)=> {
+                    let img = elem.getElementsByTagName("img")[0];
+                    return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt + "</p><small class=\"mt-0 pt-0 text-gray\">" + img.getAttribute("date") + "</small>"
+                }
             });
 
             reveal();
@@ -76,11 +82,13 @@ function loadGallery() {
     document.addEventListener("scroll", reveal);
 }
 
-loadGallery();
+onMounted(() => {
+    loadGallery();
+});
 </script>
 
 <template>
-    <h1>Gallery</h1>
+    <h1 align="center">Gallery</h1>
     <hr/>
 
     <div id="gallery">
@@ -191,6 +199,17 @@ loadGallery();
 
 #error-card {
     width: 50%;
+}
+
+figcaption {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    background: rgba(26, 26, 26, 0.7) !important;
+    border-style: solid !important;
+    border-width: 0px 0px 1px 0px !important;
+    border-color: rgba(85, 89, 92, 0.5) !important;
 }
 
 @keyframes fade-bottom {
