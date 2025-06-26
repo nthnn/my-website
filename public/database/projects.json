@@ -1,0 +1,338 @@
+[
+    {
+        "id": 1,
+        "title": "OTG-Nilboard",
+        "short_description": "Android app to suppress keyboard.",
+        "description": "OTG-Nilboard keyboard literally does nothing and is purposively made for bluetooth or OTG keyboard users.",
+        "thumbnail": "project_02",
+        "category": ["app"]
+    },
+    {
+        "id": 2,
+        "title": "Lanzaplicacion",
+        "short_description": "Android launcher with minimalist UI.",
+        "description": "Super minimalist and primitive-looking UX made without any other intent. I've made this app purely just for fun.",
+        "thumbnail": "project_03",
+        "category": ["app"]
+    },
+    {
+        "id": 3,
+        "title": "Nougat",
+        "short_description": "Dynamic programming language.",
+        "description": "Nougat programming language is a general-purpose dynamic scripting and programming language.",
+        "thumbnail": "project_04",
+        "category": ["software"]
+    },
+    {
+        "id": 4,
+        "title": "La Pregunta",
+        "short_description": "A very short multi-platform visual novel.",
+        "description": "A very-short multiplatform visual novel game I've made based on an example story by Ren'Py.",
+        "thumbnail": "project_05",
+        "category": ["software", "app", "game"]
+    },
+    {
+        "id": 5,
+        "title": "UrPh News",
+        "short_description": "Minimalistic news outlet Android app.",
+        "description": "Just another news outlet app that uses NewsAPI to fetch reliable and updated news in the Philippines in an oversimplified way.",
+        "thumbnail": "project_06",
+        "category": ["app"]
+    },
+    {
+        "id": 6,
+        "title": "Fakfak",
+        "short_description": "A fun 2D game inspired from Flappy Bird.",
+        "description": "My very first game development collaboration with <a href=\"https://www.instagram.com/lady.selenee/\" target=\"_blank\" class=\"text-reset\">Lady Selene</a>. Heavily inspired from the famous game called &quot;Flappy Bird.&quot;",
+        "thumbnail": "project_07",
+        "category": ["app", "game"]
+    },
+    {
+        "id": 7,
+        "title": "j9n8.github.io",
+        "short_description": "A team of two game developers.",
+        "description": "Our team aims to explore, grow, create, learn, and develop fun games everyone can enjoy and apps everyone can use.",
+        "thumbnail": "project_08",
+        "category": ["app", "game", "website"]
+    },
+    {
+        "id": 8,
+        "title": "PVault",
+        "short_description": "Secure Android user-friendly password vault.",
+        "description": "PVault is an Android application with a simple yet secure way to store and manage your passwords.",
+        "thumbnail": "project_09",
+        "category": ["app"]
+    },
+    {
+        "id": 9,
+        "title": "SLaunch",
+        "short_description": "Simple yet aesthetic interactive launcher.",
+        "description": "SLaunch is the most simple yet aesthetic-looking interactive Android application launcher with for real fluid UI and UX.",
+        "thumbnail": "project_10",
+        "category": ["app"]
+    },
+    {
+        "id": 10,
+        "title": "Musiccini",
+        "short_description": "Arduino Ultra-lightweight Music Synthesis",
+        "description": "Musiccini is intended to be super duper lightweight library for synthesizing music in Arduino with a buzzer.",
+        "thumbnail": "project_11",
+        "category": ["firmware"]
+    },
+    {
+        "id": 11,
+        "title": "Fakfak Bird",
+        "short_description": "Plain yet fun game using an Arduino Nano.",
+        "description": "A handheld simple Flappy Bird-like game in Arduino Nano with a monochromatic 0.9 inch OLED display.",
+        "thumbnail": "project_12",
+        "category": ["firmware", "game"]
+    },
+    {
+        "id": 12,
+        "title": "Batch2Exe",
+        "short_description": "Batch file to *.exe file converter.",
+        "description": "Batch2Exe is a program for converting batch files to executable files on Windows with user friendly GUI.",
+        "thumbnail": "project_13",
+        "category": ["software"]
+    },
+    {
+        "id": 13,
+        "title": "Arduquarium",
+        "short_description": "Automated aquarium recycler.",
+        "description": "Automated aquarium water cycler built using an Arduino UNO board to maintain optimal water conditions on aquariums.",
+        "thumbnail": "project_14",
+        "category": ["firmware"]
+    },
+    {
+        "id": 14,
+        "title": "Recognito",
+        "short_description": "Image classifier UI with TensorFlow.",
+        "description": "A Python program that uses the power of PyQT5 and TensorFlow for identifying objects from image files.",
+        "thumbnail": "project_15",
+        "category": ["ai", "software"]
+    },
+    {
+        "id": 15,
+        "title": "VizhPort",
+        "short_description": "Serial port monitor with visualization.",
+        "description": "VizhPort is a Python program that allows users to monitor the serial port with a graphical display.",
+        "thumbnail": "project_16",
+        "category": ["software"]
+    },
+    {
+        "id": 16,
+        "title": "PH4502C Sensor",
+        "short_description": "Arduino library for PH4502C sensor.",
+        "description": "Provides a convenient and easy-to-use PH4502C library, allowing you to effortlessly integrate into your Arduino projects.",
+        "thumbnail": "project_17",
+        "category": ["firmware"]
+    },
+    {
+        "id": 17,
+        "title": "Anomalia",
+        "short_description": " Library for anomaly data processing.",
+        "description": "Arduino library designed to provide a flexible and efficient framework for handling anomaly events in your Arduino projects.",
+        "thumbnail": "project_18",
+        "category": ["firmware"]
+    },
+    {
+        "id": 18,
+        "title": "Navigador",
+        "short_description": "Library for DC motor navigation.",
+        "description": "The Navigador Arduino library provides a convenient way to control the movement of a mobile robot or vehicle using an Arduino board.",
+        "thumbnail": "project_19",
+        "category": ["firmware"]
+    },
+    {
+        "id": 19,
+        "title": "MaskUp",
+        "short_description": "Simple program to identify.",
+        "description": "MaskUp is an advanced Python program designed to accurately detect whether a person is wearing a mask from an available web camera.",
+        "thumbnail": "project_20",
+        "category": ["ai", "software"]
+    },
+    {
+        "id": 20,
+        "title": "VoxHAUT Roamer",
+        "short_description": "An interactive pet robot.",
+        "description": "VoxHAUT is an interactive pet robot with emotional display, audio synthesis capabilities, sensors, and an Android app.",
+        "thumbnail": "project_21",
+        "category": ["app", "firmware"]
+    },
+    {
+        "id": 21,
+        "title": "Monitoria",
+        "short_description": "Attendance monitoring system.",
+        "description": "A comprehensive attendance monitoring system that utilizes an ESP8266 with an RFID sensor to record attendance logs.",
+        "thumbnail": "project_22",
+        "category": ["software", "firmware"]
+    },
+    {
+        "id": 22,
+        "title": "TCS3200 Sensor",
+        "short_description": "Comprehensive TCS3200 Arduino library.",
+        "description": "The TCS3200 Arduino Library is designed with simplicity and extensibility in mind, offering wide range of functionalities.",
+        "thumbnail": "project_23",
+        "category": ["firmware"]
+    },
+    {
+        "id": 23,
+        "title": "Diwa",
+        "short_description": "Arduino AI/ML lightweight surface library.",
+        "description": "Diwa is an Arduino lightweight library for Artificial Intelligence (AI) and Machine Learning (ML) applications and development.",
+        "thumbnail": "project_24",
+        "category": ["ai", "firmware"]
+    },
+    {
+        "id": 24,
+        "title": "PortaMob",
+        "short_description": "Arduino shield with OLED and buttons.",
+        "description": "Portable Mobile device-like shield for UNO-like boards; an ingenious extension for the Arduino UNO platform.",
+        "thumbnail": "project_25",
+        "category": ["firmware"]
+    },
+    {
+        "id": 25,
+        "title": "Hopia",
+        "short_description": "Easy-to-use tool for wannabe-hackers.",
+        "description": "A powerful and versatile wannabe penetration testing tool designed for ethical and legitimate security testing purposes.",
+        "thumbnail": "project_26",
+        "category": ["software"]
+    },
+    {
+        "id": 26,
+        "title": "SIM900",
+        "short_description": "Comprehensive library for SIM900 shield.",
+        "description": "The SIM900 Arduino Shield Library is a versatile and powerful Arduino library for interfacing with the SIM900 GSM/GPRS module.",
+        "thumbnail": "project_27",
+        "category": ["firmware"]
+    },
+    {
+        "id": 27,
+        "title": "Astroclock",
+        "short_description": "Cubic desktop date and time with Arduino.",
+        "description": "Astroclock is a cute desktop date and time display powered by an Arduino Nano and a monochromatic SH1106 OLED display.",
+        "thumbnail": "project_28",
+        "category": ["firmware"]
+    },
+    {
+        "id": 28,
+        "title": "microlzw",
+        "short_description": "Micro-LZW compression library.",
+        "description": "microlzw is a lightweight and embeddable Micro Lempel-Ziv-Welch compression library designed specifically for Arduino projects.",
+        "thumbnail": "project_29",
+        "category": ["firmware"]
+    },
+    {
+        "id": 29,
+        "title": "Wtf-C!?",
+        "short_description": "Meta-language extension for C and C++.",
+        "description": "&quot;wtf-C!?&quot; is a playful language extension for C and C++ that introduces unconventional macros for common programming constructs.",
+        "thumbnail": "project_30",
+        "category": ["software"]
+    },
+    {
+        "id": 30,
+        "title": "Zync OS",
+        "short_description": "Mock-up bootloader and kernel-only OS.",
+        "description": "Zync OS is a mock-up bootloader and kernel-only dummy operating system. It has a very basic boring shell written purely in Assembly x86.",
+        "thumbnail": "project_31",
+        "category": ["software"]
+    },
+    {
+        "id": 31,
+        "title": "Qrepo",
+        "short_description": "Easy-to-use all-for-one build tool.",
+        "description": "Qrepo is a lightweight and intuitive package and build manager designed to streamline the process of managing project dependencies and scripts.",
+        "thumbnail": "project_32",
+        "category": ["software"]
+    },
+    {
+        "id": 32,
+        "title": "Rheolaeth",
+        "short_description": "Remote tool for controlling shell via HTTP.",
+        "description": "Rheolaeth is a Ballerina program designed for secure payload remote shell execution on devices, consists of &quot;puppet&quot; and a &quot;puppetmaster&quot;.",
+        "thumbnail": "project_33",
+        "category": ["software"]
+    },
+    {
+        "id": 33,
+        "title": "ladivic",
+        "short_description": "System-level thread- and fail-safe library.",
+        "description": "C++ library for providing system-level thread- and fail-safe functions for atomicity, file I/O, IPC, memory management, and sysinfo retrieval.",
+        "thumbnail": "project_34",
+        "category": ["software"]
+    },
+    {
+        "id": 34,
+        "title": "Tomo",
+        "short_description": "Handheld companion pet made with ESP32.",
+        "description": "An AI-like handheld interactable full of emotion companion pet made with ESP32 NodeMCU via Arduino Platform.",
+        "thumbnail": "project_35",
+        "category": ["firmware", "game"]
+    },
+    {
+        "id": 35,
+        "title": "N2CMU",
+        "short_description": "Neural Network Coprocessing MCU",
+        "description": "Feedforward Neural Network Coprocessing Microcontroller Unit on STM32F103C8T6 Bluepill devboard written in TinyGo.",
+        "thumbnail": "project_36",
+        "category": ["ai", "firmware"]
+    },
+    {
+        "id": 36,
+        "title": "NoOS",
+        "short_description": "No Operating System Unikernel",
+        "description": "NoOS (No Operating System) is an attempt unikernel framework for developing programs in C++ without OS.",
+        "thumbnail": "project_37",
+        "category": ["software", "firmware"]
+    },
+    {
+        "id": 37,
+        "title": "NateOS",
+        "short_description": "My own lightweight Linux-based OS",
+        "description": "My own lightweight Linux-based OS distribution, created for enjoyment and personal experimentation.",
+        "thumbnail": "project_38",
+        "category": ["software"]
+    },
+    {
+        "id": 38,
+        "title": "Rust RP2040",
+        "short_description": "Rust Project Template for RP2040",
+        "description": "A starting point for developing embedded Rust applications on Raspberry Pi Pico, with configurations and UF2 memory map.",
+        "thumbnail": "project_39",
+        "category": ["firmware"]
+    },
+    {
+        "id": 39,
+        "title": "DynaConfig",
+        "short_description": "WiFi dynamic config for ESP32",
+        "description": "Arduino WiFi dynamic configuration library for ESP32 using captive portal authentication.",
+        "thumbnail": "project_40",
+        "category": ["firmware"]
+    },
+    {
+        "id": 40,
+        "title": "Uartix",
+        "short_description": "Programming Language with RPi Pico",
+        "description": "Dynamic scripting language that performs mathematical computations on a connected Raspberry Pi Pico.",
+        "thumbnail": "project_41",
+        "category": ["software", "firmware"]
+    },
+    {
+        "id": 41,
+        "title": "tasuke",
+        "short_description": "Customizable AI Assistant",
+        "description": "Personal computer assistant that utilizes AI voice command recognition to help automate tasks.",
+        "thumbnail": "project_42",
+        "category": ["ai", "software"]
+    },
+    {
+        "id": 42,
+        "title": "mdif",
+        "short_description": "Minimal Data Image Format",
+        "description": "MDIF is a lightweight image format with minimal data structure and integration with Diwa in mind.",
+        "thumbnail": "project_43",
+        "category": ["software"]
+    }
+]
