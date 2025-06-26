@@ -1,6 +1,7 @@
 import "./assets/styles/bootstrap.min.css";
 import "./assets/styles/global.css";
 
+import "animate.css";
 import "bootstrap";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "fa-icons";
