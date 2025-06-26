@@ -3,6 +3,9 @@ import MeCard from "@/components/MeCard.vue";
 import MyExperiences from "@/components/MyExperiences.vue";
 import MyExpertise from "@/components/MyExpertise.vue";
 import Testimonials from "@/components/Testimonials.vue";
+
+import { hideLoadingBar } from "../scripts/loading.ts";
+hideLoadingBar(()=> {});
 </script>
 
 <template>
