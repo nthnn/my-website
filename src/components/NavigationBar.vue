@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { toggleBurger } from "../scripts/burger.ts";
 import { computed, reactive } from "vue";
 import {
     type RouteLocationNormalizedLoaded,
@@ -15,8 +16,8 @@ var pageData = reactive({
 <template>
     <nav class="navbar navbar-expand-lg bg-primary fixed-top">
         <div class="container-fluid">
-            <RouterLink to="/" class="navbar-brand text-white mobile-only">Nathanne Isip</RouterLink>
-            <button class="navbar-toggler focus-ring focus-ring-primary" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <RouterLink to="/" class="navbar-brand text-white mobile-only" v-on:click="toggleBurger">Nathanne Isip</RouterLink>
+            <button id="nav-burger" class="navbar-toggler focus-ring focus-ring-primary" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-lg-flex justify-content-center" id="main-navbar">
