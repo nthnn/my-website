@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import RiveScript from 'rivescript/dist/rivescript.min.js';
 
