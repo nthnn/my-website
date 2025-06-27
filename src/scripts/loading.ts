@@ -7,7 +7,7 @@ export function showLoadingBar() {
     loading.classList.add("d-block");
 }
 
-export function hideLoadingBar(callback: ()=> VoidFunction) {
+export function hideLoadingBar(callback: ()=> void) {
     let loading = document.getElementById(
         "loading"
     ) as HTMLElement;
@@ -17,5 +17,5 @@ export function hideLoadingBar(callback: ()=> VoidFunction) {
         loading.classList.add("d-none");
 
         callback();
-    }, 2500);
+    }, 2200);
 }
