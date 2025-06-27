@@ -4,8 +4,17 @@ import MyExperiences from "@/components/MyExperiences.vue";
 import MyExpertise from "@/components/MyExpertise.vue";
 import Testimonials from "@/components/Testimonials.vue";
 
+import { useRoute } from "vue-router";
+import { watch, onMounted } from "vue";
 import { hideLoadingBar } from "../scripts/loading.ts";
-hideLoadingBar(()=> {});
+
+const route = useRoute();
+watch(
+    ()=> route.fullPath,
+    async (_, __)=>
+        hideLoadingBar(()=> {})
+);
+onMounted(hideLoadingBar);
 </script>
 
 <template>
