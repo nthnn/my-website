@@ -1,9 +1,15 @@
-<script setup>
-import { watch } from "vue";
+<script setup lang="ts">
+import { Modal } from "bootstrap";
 import { useRoute } from "vue-router";
 import { RouterView } from 'vue-router';
-import { toggleBurger } from "./scripts/burger.ts";
-import { showLoadingBar } from "./scripts/loading.ts";
+import { watch, onMounted } from "vue";
+
+import {
+    showLoadingBar,
+    hideLoadingBar
+} from "./scripts/loading";
+
+import Cookies from "js-cookie";
 
 import Footer from "./components/Footer.vue";
 import NavigationBar from "./components/NavigationBar.vue";
@@ -21,6 +27,55 @@ watch(
 document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     return false;
+});
+
+onMounted(()=> {
+    if(Cookies.get("has_visited") !== undefined)
+        return;
+
+    fetch("./database/events.json").then(response => {
+        if(!response.ok) {
+            hideLoadingBar(()=> {});
+            throw new Error("Network response was not ok");
+        }
+
+        return response.json();
+    }).then((data: {date: string, title: string, message: string}[]) => {
+        let now = new Date();
+        let isTodaysDate = (date: Date)=> {
+            return now.getFullYear() === date.getFullYear() &&
+                now.getMonth() == date.getMonth() &&
+                now.getDate() == date.getDate();
+        }, setModalInfo = (title: string, message: string)=> {
+            document.getElementById(
+                "announcement-title"
+            ).innerHTML = title;
+            document.getElementById(
+                "announcement-message"
+            ).innerHTML = message;
+        }, showModal = ()=>
+            new Modal(document.getElementById("announcement"))
+                .show();
+
+        for(let i = 0; i < data.length; i++) {
+            if(data[i].date == "none")
+                continue;
+
+            if(data[i].date == "ongoing" || isTodaysDate(new Date(data[i].date))) {
+                setModalInfo(
+                    data[i].title,
+                    data[i].message
+                );
+                showModal();
+            }
+
+            Cookies.set("has_visited", "1", {
+                expires: new Date(
+                    now.getTime() + (2 * 60 * 60 * 1000)
+                )
+            });
+        }
+    });
 });
 </script>
 
@@ -40,6 +95,23 @@ document.addEventListener('contextmenu', (event) => {
     </div>
 
     <TantanAI />
+
+    <div class="modal fade" id="announcement" tabindex="-1" aria-labelledby="announcementLabel" aria-hidden="true" data-bs-theme="dark">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border border-gray">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="announcement-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="announcement-message"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <style>
