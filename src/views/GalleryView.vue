@@ -95,7 +95,7 @@ function loadGallery() {
                     let img = elem.getElementsByTagName("img")[0];
                     return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt +
                         "</p><small class=\"mt-0 pt-0 text-gray\">" +
-                        img.getAttribute("date") + "</small>"
+                        img.getAttribute("date") + "</small>";
                 },
                 afterHide: ()=> removeParameter("id"),
                 onChange: (idx, _)=> addParameter("id", idx + 1)
@@ -244,8 +244,6 @@ onMounted(() => loadGallery());
 }
 
 figcaption {
-    padding-top: 12px;
-    padding-bottom: 6px;
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     background: rgba(26, 26, 26, 0.7) !important;
@@ -284,7 +282,12 @@ figcaption {
     .row { margin-bottom: 0px; }
 }
 
-@media only screen and (max-width: 771px) {
+@media only screen and (min-width: 770px) {
     #error-card { width: 100%; }
+
+    figcaption {
+        padding-top: 12px;
+        padding-bottom: 6px;
+    }
 }
 </style>
