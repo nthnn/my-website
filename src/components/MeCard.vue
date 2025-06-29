@@ -21,8 +21,8 @@ function getCurrentAge(): number {
         <div class="col-lg-1"></div>
 
         <div class="col-lg-3" align="center">
-            <img src="@/assets/images/me.jpg" class="rounded-circle w-100 desktop-only" />
-            <img src="@/assets/images/me.jpg" class="rounded-circle w-75 mobile-only" />
+            <img src="@/assets/images/me.png" class="rounded-circle w-100 border border-gray desktop-only" />
+            <img src="@/assets/images/me.png" class="rounded-circle w-75 border border-gray mobile-only" />
         </div>
 
         <div class="col-lg-7" align="center">
