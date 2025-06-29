@@ -250,6 +250,13 @@ figcaption {
     border-style: solid !important;
     border-width: 0px 0px 1px 0px !important;
     border-color: rgba(85, 89, 92, 0.5) !important;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.8s ease;
+}
+
+figcaption:hover {
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .rotating-gear {
