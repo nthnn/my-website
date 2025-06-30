@@ -34,8 +34,8 @@ const dumpData = (
 
             content += `
                 <div class="col-12 col-lg-4 ${count == 1 || count == 2 ? 'mt-4 mt-lg-0' : ''}">
-                    <div class="card card-body bg-primary border border-gray animate__animated animate__flipInX p-0"
-                        onclick="window.location.href='view.html?id=${item.id}'"
+                    <div class="card card-body bg-primary border border-gray p-0 article-card"
+                        onclick="window.location.href='view?id=${item.id}'"
                         align=\"left\"
                     >
                         <img src="./images/projects/${item.thumbnail}.png" class="w-100" />
@@ -91,8 +91,7 @@ function loadProjects() {
 
         const filterInput = document.getElementById("filter") as HTMLInputElement;
         const categoriesSelect = document.getElementById("categories") as HTMLSelectElement;
-
-        filterInput.addEventListener("change", () => {
+        const filterInputEvent = () => {
             const category = categoriesSelect.options[categoriesSelect.selectedIndex].value;
             let filterValue = filterInput.value.replace(
                 /[\u00A0-\u9999<>\&]/g, (i) => `&#${i.charCodeAt(0)};`
@@ -103,7 +102,10 @@ function loadProjects() {
             else removeParameter("search");
 
             dumpData(data, category, filterValue);
-        });
+        };
+
+        filterInput.addEventListener("change", filterInputEvent);
+        filterInput.addEventListener("input", filterInputEvent);
 
         categoriesSelect.addEventListener("change", () => {
             projects.innerHTML = "";
