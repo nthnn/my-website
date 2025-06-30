@@ -146,9 +146,9 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 
 <template>
     <h1 align="center">Projects</h1>
-    <div class="modal fade" id="filter-modal">
+    <div class="modal fade" id="filter-modal" data-bs-theme="dark">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
+            <div class="modal-content border border-gray">
                 <div class="modal-header">
                     <h4 class="modal-title">Filter Projects</h4>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
@@ -156,7 +156,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 
                 <div class="modal-body">
                     <div class="w-100" align="center">
-                        <select class="form-control" id="categories">
+                        <select class="form-control bg-transparent border border-gray" id="categories">
                             <option value="category">All</option>
                             <option value="app">Mobile Applications</option>
                             <option value="software">Software</option>
@@ -169,7 +169,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
                 </div>
 
                 <div class="modal-footer">
-                    <a class="btn-primary">Apply Selected</a>
+                    <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal"><i class="bi bi-check"></i> Apply Selected</button>
                 </div>
             </div>
         </div>
@@ -177,7 +177,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 
     <div class="input-group mb-3">
         <input type="text" class="form-control form-input bg-primary text-white border border-gray" placeholder="Search a project..." id="filter" autocomplete="off" aria-describedby="search-bar">
-        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal">Filter<span class="desktop-only"> Projects</span></button>
+        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal"><i class="bi bi-funnel"></i> Filter<span class="desktop-only"> Projects</span></button>
     </div>
 
     <div class="mobile-break">
@@ -194,35 +194,21 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
     </div>
 
     <div id="no-projects-found" class="d-none">
-        <div class="container col-lg-6" align="center">
-            <div class="card card-body border border-gray">
-                <div align="center">
-                    <img src="./assets/images/img_planet.png" width="60%" />
-                    <br/><br/>
-                    <h5>No projects found.</h5>
-                    <br/>
-                    <p>There are no matching result for the applied filter.</p>
-                    <br/>
-                </div>
-            </div>
-
+        <div class="d-block w-100" align="center">
+            <br/>
+            <h1>&#x26A0;</h1>
+            <h5>No projects found.</h5>
+            <p>There are no matching result for the applied filter.</p>
             <br/>
         </div>
     </div>
 
     <div id="cannot-load" class="d-none">
-        <div class="container col-lg-6" align="center">
-            <div class="card card-body border border-gray">
-                <div align="center">
-                    <img src="./assets/images/img_satelite.png" width="60%" />
-                    <br/><br/>
-                    <h5>Cannot load projects.</h5>
-                    <br/>
-                    <p>Something went wrong while fetching data.</p>
-                    <br/>
-                </div>
-            </div>
-
+        <div class="d-block w-100" align="center">
+            <br/>
+            <h1>&#x26A0;</h1>
+            <h5>Cannot load projects.</h5>
+            <p>Something went wrong while fetching data.</p>
             <br/>
         </div>
     </div>
