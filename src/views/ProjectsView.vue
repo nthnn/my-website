@@ -1,149 +1,79 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
 import { hideLoadingBar } from "@/scripts/loading";
+import {
+    watch,
+    onMounted,
+    ref,
+    computed
+} from "vue";
 import {
     addParameter,
     getParameters,
     removeParameter
 } from "@/scripts/params";
 
-const dumpData = (
-    data: {
-        id: number,
-        title: string,
-        short_description: string,
-        description: string,
-        thumbnail: string,
-        category: Array<string>
-    }[],
-    category: string,
-    filter = ""
-) => {
-    let content = "<div class=\"row m-0 p-0\">", count = 0;
+import ProjectCard from "@/components/ProjectCard.vue";
 
-    for (let j = 0; j < data.length; j++) {
-        const item = data[j];
-        if((item["category"].includes(category) || category === "category") &&
-            (filter === "" ||
-                item["title"].toLowerCase().includes(filter.toLowerCase()) ||
-                item["description"].toLowerCase().includes(filter.toLowerCase()))) {
-            if(count == 3) {
-                content += "</div><div class=\"row m-0 mt-4 p-0\">";
-                count = 0;
-            }
+const allProjects = ref([]);
+const filterInput = ref("");
+const selectedCategory = ref("category");
 
-            content += `
-                <div class="col-12 col-lg-4 ${count == 1 || count == 2 ? 'mt-4 mt-lg-0' : ''}">
-                    <div class="card card-body bg-primary border border-gray p-0 article-card"
-                        onclick="window.location.href='view?id=${item.id}'"
-                        align=\"left\"
-                    >
-                        <img src="./images/projects/${item.thumbnail}.png" class="w-100" />
+const filteredProjects = computed(() => {
+    return allProjects.value.filter((item: any) => {
+        const matchesCategory = selectedCategory.value === "category" ||
+            item.category.includes(selectedCategory.value);
+        const matchesFilter = filterInput.value === "" ||
+            item.title.toLowerCase().includes(filterInput.value.toLowerCase()) ||
+            item.description.toLowerCase().includes(filterInput.value.toLowerCase());
 
-                        <div class="px-4 py-2">
-                            <h3 class="card-title mt-2 mb-0 pb-0">${item.title}</h3>
-                            <small><i>${item.short_description}</i></small>
-                            <p class="mt-2">${item.description}</p>
-                        </div>
-                    </div>
-                </div>`;
+        return matchesCategory && matchesFilter;
+    });
+});
 
-            count++;
-        }
-    }
-    content += "</div>";
-
-    const noProjectsFound = document.getElementById(
-        "no-projects-found"
-    ) as HTMLElement, projects = document.getElementById(
-        "projects"
-    ) as HTMLElement;
-
-    if(count > 0) {
-        noProjectsFound.classList.add("d-none");
-        noProjectsFound.classList.remove("animate__animated", "animate__fadeIn");
-
-        projects.innerHTML = content;
-    }
-    else {
-        noProjectsFound.classList.remove("d-none");
-        noProjectsFound.classList.add("animate__animated", "animate__fadeIn");
-
-        projects.innerHTML = "";
-    }
-};
-
-function loadProjects() {
-    let projects = document.getElementById(
-        "projects"
-    ) as HTMLElement;
-
+const loadProjects = () => {
     fetch("./database/projects.json").then(response => {
-        if(!response.ok) {
-            hideLoadingBar(()=> {});
+        if (!response.ok) {
+            hideLoadingBar(() => {});
             throw new Error("Network response was not ok");
         }
 
         return response.json();
-    })
-    .then(data => {
-        data.reverse();
-
-        const filterInput = document.getElementById("filter") as HTMLInputElement;
-        const categoriesSelect = document.getElementById("categories") as HTMLSelectElement;
-        const filterInputEvent = () => {
-            const category = categoriesSelect.options[categoriesSelect.selectedIndex].value;
-            let filterValue = filterInput.value.replace(
-                /[\u00A0-\u9999<>\&]/g, (i) => `&#${i.charCodeAt(0)};`
-            );
-
-            if(filterValue !== "")
-                addParameter("search", encodeURIComponent(filterValue));
-            else removeParameter("search");
-
-            dumpData(data, category, filterValue);
-        };
-
-        filterInput.addEventListener("change", filterInputEvent);
-        filterInput.addEventListener("input", filterInputEvent);
-
-        categoriesSelect.addEventListener("change", () => {
-            projects.innerHTML = "";
-
-            const category = categoriesSelect.options[categoriesSelect.selectedIndex].value;
-            let filterValue = filterInput.value.replace(
-                /[\u00A0-\u9999<>\&]/g, (i) => `&#${i.charCodeAt(0)};`
-            );
-
-            dumpData(data, category, filterValue);
-        });
+    }).then(data => {
+        allProjects.value = data.reverse();
 
         let params = getParameters();
         if(params.has("search")) {
             let searchValue = params.get("search") || "";
-
             if(searchValue === "")
                 removeParameter("search");
-            else filterInput.value = searchValue;
+            else filterInput.value = decodeURIComponent(searchValue);
         }
 
-        setTimeout(() => dumpData(data, "category", filterInput.value), 2000);
-        hideLoadingBar(()=> {});
-    })
-    .catch((e) => {
-        projects.classList.add("d-none");
-        hideLoadingBar(()=> {});
+        hideLoadingBar(() => {});
+    }).catch((e) => {
+        console.error("Error loading projects:", e);
+        hideLoadingBar(() => {});
 
         const cannotLoad = document.getElementById(
             "cannot-load"
         ) as HTMLElement;
-        cannotLoad.classList.remove("d-none");
-        cannotLoad.classList.add("animate__animated", "animate__fadeIn");
+
+        if(cannotLoad) {
+            cannotLoad.classList.remove("d-none");
+            cannotLoad.classList.add("animate__animated", "animate__fadeIn");
+        }
     });
-}
+};
+
+watch(filterInput, (newValue) => {
+    if (newValue !== "") {
+        addParameter("search", encodeURIComponent(newValue));
+    } else {
+        removeParameter("search");
+    }
+});
 
 onMounted(loadProjects);
-setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 </script>
 
 <template>
@@ -158,7 +88,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 
                 <div class="modal-body">
                     <div class="w-100" align="center">
-                        <select class="form-control bg-transparent border border-gray" id="categories">
+                        <select class="form-control bg-transparent border border-gray" id="categories" v-model="selectedCategory">
                             <option value="category">All</option>
                             <option value="app">Mobile Applications</option>
                             <option value="software">Software</option>
@@ -178,7 +108,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
     </div>
 
     <div class="input-group mb-3">
-        <input type="text" class="form-control form-input bg-primary text-white border border-gray" placeholder="Search a project..." id="filter" autocomplete="off" aria-describedby="search-bar">
+        <input type="text" class="form-control form-input bg-primary text-white border border-gray" placeholder="Search a project..." id="filter" autocomplete="off" aria-describedby="search-bar" v-model="filterInput">
         <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal"><i class="bi bi-funnel"></i> Filter<span class="desktop-only"> Projects</span></button>
     </div>
 
@@ -186,23 +116,35 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
         <br/>
     </div>
 
-    <div id="projects" class="row" align="center">
-        <div class="d-block w-100">
-            <br/>
-            <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
-            <p class="mt-3">Projects are currently being loaded, please wait...</p>
-            <br/>
-        </div>
-    </div>
-
-    <div id="no-projects-found" class="d-none">
-        <div class="d-block w-100" align="center">
-            <br/>
-            <h1>&#x26A0;</h1>
-            <h5>No projects found.</h5>
-            <p>There are no matching result for the applied filter.</p>
-            <br/>
-        </div>
+    <div id="projects" class="row m-0 p-0" align="center">
+        <template v-if="filteredProjects.length > 0">
+            <div
+                v-for="(item, index) in filteredProjects"
+                :key="(item as any).id"
+                :class="['col-12 col-lg-4 mt-4']"
+            >
+                <ProjectCard :item="item" />
+            </div>
+        </template>
+        <template v-else-if="allProjects.length === 0">
+            <div class="d-block w-100">
+                <br/>
+                <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
+                <p class="mt-3">Projects are currently being loaded, please wait...</p>
+                <br/>
+            </div>
+        </template>
+        <template v-else>
+            <div id="no-projects-found">
+                <div class="d-block w-100" align="center">
+                    <br/>
+                    <h1>&#x26A0;</h1>
+                    <h5>No projects found.</h5>
+                    <p>There are no matching results for the applied filter.</p>
+                    <br/>
+                </div>
+            </div>
+        </template>
     </div>
 
     <div id="cannot-load" class="d-none">
