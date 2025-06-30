@@ -21,7 +21,7 @@ const barClass = computed(() => {
         return "bg-warning";
 
     return "bg-danger";
-})
+});
 </script>
 
 <template>

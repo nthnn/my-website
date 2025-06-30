@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { toggleBurger } from "../scripts/burger.ts";
+import { toggleBurger } from "@/scripts/burger";
 import { computed, reactive } from "vue";
 import {
     type RouteLocationNormalizedLoaded,
