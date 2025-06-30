@@ -33,7 +33,7 @@ const dumpData = (
             }
 
             content += `
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 ${count == 1 || count == 2 ? 'mt-4 mt-lg-0' : ''}">
                     <div class="card card-body bg-primary border border-gray animate__animated animate__flipInX p-0"
                         onclick="window.location.href='view.html?id=${item.id}'"
                         align=\"left\"
@@ -100,6 +100,8 @@ function loadProjects() {
 
             if(filterValue !== "")
                 addParameter("search", encodeURIComponent(filterValue));
+            else removeParameter("search");
+
             dumpData(data, category, filterValue);
         });
 
@@ -175,7 +177,7 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 
     <div class="input-group mb-3">
         <input type="text" class="form-control form-input bg-primary text-white border border-gray" placeholder="Search a project..." id="filter" autocomplete="off" aria-describedby="search-bar">
-        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal">Filter Projects</button>
+        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal">Filter<span class="desktop-only"> Projects</span></button>
     </div>
 
     <div class="mobile-break">
@@ -227,6 +229,10 @@ setTimeout(()=> hideLoadingBar(()=> {}), 5000);
 </template>
 
 <style scoped>
+#projects {
+    overflow-y: hidden;
+}
+
 .rotating-gear {
   animation: rotate-gear 2s linear infinite;
   display: inline-block;
