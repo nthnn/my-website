@@ -6,7 +6,7 @@ import Testimonials from "@/components/Testimonials.vue";
 
 import { useRoute } from "vue-router";
 import { watch, onMounted } from "vue";
-import { hideLoadingBar } from "../scripts/loading.ts";
+import { hideLoadingBar } from "@/scripts/loading";
 
 const route = useRoute();
 watch(

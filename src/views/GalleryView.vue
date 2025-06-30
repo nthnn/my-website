@@ -2,14 +2,14 @@
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 
-import { hideLoadingBar } from "../scripts/loading.ts";
+import { hideLoadingBar } from "@/scripts/loading";
 import { onMounted } from "vue";
 
 import {
     addParameter,
     getParameters,
     removeParameter
-} from "../scripts/params.ts";
+} from "@/scripts/params";
 
 var clickImage = (e: HTMLElement)=> {
     e.dispatchEvent(new MouseEvent("click", {
@@ -44,7 +44,10 @@ function loadGallery() {
 
         const id = getParameters().get("id");
         if(id && Number.isInteger(parseInt(id, 10)))
-            clickImage(document.getElementById("caption-" + id));
+            clickImage(
+                document.getElementById("caption-" + id) as
+                    HTMLElement
+            );
     };
 
     fetch("./database/gallery.json").then(response => {
@@ -91,14 +94,14 @@ function loadGallery() {
             baguetteBox.run(".gallery-container", {
                 animation: "slideIn",
                 noScrollBars: true,
-                captions: (elem)=> {
+                captions: (elem: HTMLElement)=> {
                     let img = elem.getElementsByTagName("img")[0];
                     return "<p class=\"fw-bold text-white mb-0 pb-0\">" + img.alt +
                         "</p><small class=\"mt-0 pt-0 text-gray\">" +
                         img.getAttribute("date") + "</small>";
                 },
                 afterHide: ()=> removeParameter("id"),
-                onChange: (idx, _)=> addParameter("id", idx + 1)
+                onChange: (idx: number, _: any)=> addParameter("id", (idx + 1).toString())
             });
 
             hideLoadingBar(showGallery);
