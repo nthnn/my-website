@@ -1,43 +1,57 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 
-import { getParameters } from '@/scripts/params';
+const route = useRoute();
+const router = useRouter();
 
-let isValidID = (str: string)=>
-    !isNaN(str as any) && !isNaN(parseFloat(str));
+const projectContent = ref("");
+const loadArticle = async (id: string | string[]) => {
+    const articleId = Array.isArray(id) ? id[0] : id;
+    if(!articleId || isNaN(Number(articleId))) {
+        router.push("/404");
+        return;
+    }
 
-((paramName, callback) => {
-    const paramValue = getParameters().get(paramName);
+    try {
+        const response = await fetch(`./database/projects/${articleId}.json`);
+        if(!response.ok)
+            throw new Error(`Failed to fetch project data: ${response.status}`);
 
-    if(paramValue)
-        callback(paramValue);
-})("id", (id: string) => {
-    if (isValidID(id)) {
-        fetch("./database/projects/" + id + ".json")
-            .then(response => {
-                if (!response.ok) throw new Error("Failed to fetch");
-                return response.json();
-            })
-            .then(data => {
-                document.title = data["title"];
-                (document.getElementById(
-                    "main-content"
-                ) as HTMLElement).innerHTML = data["content"];
+        const data = await response.json();
+        document.title = data.title;
+        projectContent.value = data.content;
 
+        setTimeout(() => {
+            if (document.querySelector(".main-section")) {
                 baguetteBox.run(".main-section", {
                     animation: 'fadeIn',
                     noScrollBars: true,
                 });
-            }).catch(() => {
-                window.location.href = "404.html";
-            });
+            }
+        }, 100);
     }
-    else window.location.href = "404.html";
-});
+    catch(error) {
+        console.error("Error loading article:", error);
+        router.push("/404");
+    }
+};
 
+watch(
+    () => route.query.id,
+    (newId) => {
+        if(newId)
+            loadArticle(newId as string);
+    },
+    {immediate: true}
+);
 </script>
 
 <template>
-    <div class="container main-section" id="main-content"></div>
+    <div>
+        <div class="container main-section" id="main-content" v-html="projectContent"></div>
+    </div>
 </template>
