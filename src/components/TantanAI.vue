@@ -6,11 +6,13 @@ const isOpen = ref(false),
     messages = ref([]),
     inputText = ref(''),
     initialGreetingShown = ref(false);
-let bot, typingTimeout;
+
+let bot: RiveScript = new RiveScript(),
+    typingTimeout: number;
 
 onMounted(() => {
     bot = new RiveScript();
-    bot.setSubroutine('jsAlert', (rs, args) => {
+    bot.setSubroutine('jsAlert', (rs: string, args: Array<string>) => {
         alert(args.join(' '));
         return '';
     });
@@ -18,12 +20,12 @@ onMounted(() => {
     bot.loadFile(
         ['/brain.rive'],
         ()=> bot.sortReplies(),
-        (err, filename, lineno) => {
+        (err: Error, filename: string, lineno: number) => {
             console.error(`Error loading ${filename} at line ${lineno}: ${err}`);
         }
     );
 
-    const onKeyDown = (e) => {
+    const onKeyDown = (e: KeyboardEvent) => {
         if(e.key === "Escape" && isOpen.value)
             isOpen.value = false;
     };
@@ -62,7 +64,7 @@ function sendMessage() {
     clearTimeout(typingTimeout);
 
     typingTimeout = setTimeout(() => {
-        bot.replyAsync('local-user', text, null, (err, reply) => {
+        bot.replyAsync('local-user', text, null, (err: Error, reply: string) => {
             removeTypingIndicator();
             if(!err) {
                 if(reply.trim())
@@ -72,23 +74,26 @@ function sendMessage() {
     }, 1500 + Math.random() * 1000);
 }
 
-function appendUserMessage(text) {
-    messages.value.push({ type: 'user', text });
+function appendUserMessage(text: string) {
+    messages.value.push({type: 'user', text} as never);
     scrollToBottom();
 }
 
-function appendBotMessage(text) {
-    messages.value.push({ type: 'bot', text });
+function appendBotMessage(text: string) {
+    messages.value.push({type: 'bot', text} as never);
     scrollToBottom();
 }
 
 function showTypingIndicator() {
-    messages.value.push({ type: 'typing' });
+    messages.value.push({type: 'typing'} as never);
     scrollToBottom();
 }
 
 function removeTypingIndicator() {
-    const idx = messages.value.findIndex(m => m.type === 'typing');
+    const idx = messages.value.findIndex(
+        m => (m as any).type === 'typing'
+    );
+
     if(idx !== -1)
         messages.value.splice(idx, 1);
 }
@@ -112,17 +117,17 @@ function scrollToBottom() {
 
             <div id="chat-body" class="d-flex flex-column">
                 <div v-for="(msg, idx) in messages" :key="idx" :class="[
-                    msg.type === 'user' ? 'user-msg ms-auto' : '',
-                    msg.type === 'bot' ? 'bot-wrapper' : '',
-                    msg.type === 'typing' ? 'typing-wrapper' : ''
+                    (msg as any).type === 'user' ? 'user-msg ms-auto' : '',
+                    (msg as any).type === 'bot' ? 'bot-wrapper' : '',
+                    (msg as any).type === 'typing' ? 'typing-wrapper' : ''
                 ]">
-                    <template v-if="msg.type === 'bot' || msg.type === 'typing'">
+                    <template v-if="(msg as any).type === 'bot' || (msg as any).type === 'typing'">
                         <img src="@/assets/images/tantan.png" class="bot-profile" alt="Bot" />
                     </template>
 
-                    <div v-if="msg.type === 'user'" class="user-msg text-dark">{{ msg.text }}</div>
-                    <div v-else-if="msg.type === 'bot'" class="bot-msg text-dark">{{ msg.text }}</div>
-                    <div v-else-if="msg.type === 'typing'" id="typing-indicator">
+                    <div v-if="(msg as any).type === 'user'" class="user-msg text-dark">{{ (msg as any).text }}</div>
+                    <div v-else-if="(msg as any).type === 'bot'" class="bot-msg text-dark">{{ (msg as any).text }}</div>
+                    <div v-else-if="(msg as any).type === 'typing'" id="typing-indicator">
                         <div class="typing-dots">
                             <span></span><span></span><span></span>
                         </div>
@@ -208,7 +213,6 @@ function scrollToBottom() {
     align-self: flex-end;
     background-color: #daf0fe;
     padding: 0.5rem 0.75rem;
-    border-radius: 1rem;
     margin: 0.25rem 0;
     max-width: 100%;
 }
@@ -222,7 +226,6 @@ function scrollToBottom() {
 .bot-msg {
     background-color: #f5f5f5;
     padding: 0.5rem 0.75rem;
-    border-radius: 1rem;
     max-width: 80%;
 }
 
