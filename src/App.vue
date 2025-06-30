@@ -47,12 +47,12 @@ onMounted(()=> {
                 now.getMonth() == date.getMonth() &&
                 now.getDate() == date.getDate();
         }, setModalInfo = (title: string, message: string)=> {
-            document.getElementById(
+            (document.getElementById(
                 "announcement-title"
-            ).innerHTML = title;
-            document.getElementById(
+            ) as HTMLElement).innerHTML = title;
+            (document.getElementById(
                 "announcement-message"
-            ).innerHTML = message;
+            ) as HTMLElement).innerHTML = message;
         }, showModal = ()=>
             new Modal(document.getElementById("announcement"))
                 .show();
