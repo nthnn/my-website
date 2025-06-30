@@ -32,14 +32,16 @@ const filteredProjects = computed(() => {
 
 const loadProjects = () => {
     fetch("./database/projects.json").then(response => {
-        if (!response.ok) {
+        if(!response.ok) {
             hideLoadingBar(() => {});
             throw new Error("Network response was not ok");
         }
 
         return response.json();
     }).then(data => {
-        allProjects.value = data.reverse();
+        setTimeout(()=> {
+            allProjects.value = data.reverse();
+        }, 2500);
 
         let params = getParameters();
         if(params.has("search")) {
@@ -66,7 +68,7 @@ const loadProjects = () => {
 };
 
 watch(filterInput, (newValue) => {
-    if (newValue !== "") {
+    if(newValue !== "") {
         addParameter("search", encodeURIComponent(newValue));
     } else {
         removeParameter("search");
