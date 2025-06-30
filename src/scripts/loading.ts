@@ -16,6 +16,7 @@ export function hideLoadingBar(callback: ()=> void) {
         loading.classList.remove("d-block");
         loading.classList.add("d-none");
 
-        callback();
+        if(callback)
+            callback();
     }, 2200);
 }
