@@ -118,7 +118,7 @@ onMounted(loadProjects);
         <br/>
     </div>
 
-    <div id="projects" class="row m-0 p-0" align="center">
+    <div id="projects" class="row equal-cols m-0 p-0" align="center">
         <template v-if="filteredProjects.length > 0">
             <div
                 v-for="(item, index) in filteredProjects"
@@ -170,6 +170,35 @@ onMounted(loadProjects);
   display: inline-block;
 }
 
+.row.equal-cols {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+  
+.row.equal-cols:before, .row.equal-cols:after {
+	display: block;
+}
+
+.row.equal-cols > [class*='col-'] {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-top: 22px;
+}
+  
+.row.equal-cols > [class*='col-'] > * {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto; 
+}
+    
 @keyframes rotate-gear {
   from {
     transform: rotate(0deg);
