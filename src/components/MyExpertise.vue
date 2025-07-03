@@ -6,7 +6,7 @@ const langs = ref<{
     name: string;
     percentage: number;
 }[]>([]);
-onMounted(async () => {
+onMounted(async ()=> {
     const response = await fetch("/performance.svg");
     if(!response.ok)
         return;

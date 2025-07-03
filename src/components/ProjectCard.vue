@@ -13,7 +13,7 @@ const props = defineProps<{
 }>();
 
 const router = useRouter();
-const goToProjectDetail = () => {
+const goToProjectDetail = ()=> {
     router.push({ name: 'view', query: { id: props.item.id } });
 };
 </script>

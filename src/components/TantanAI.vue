@@ -10,9 +10,9 @@ const isOpen = ref(false),
 let bot: RiveScript = new RiveScript(),
     typingTimeout: number;
 
-onMounted(() => {
+onMounted(()=> {
     bot = new RiveScript();
-    bot.setSubroutine('jsAlert', (rs: string, args: Array<string>) => {
+    bot.setSubroutine('jsAlert', (rs: string, args: Array<string>)=> {
         alert(args.join(' '));
         return '';
     });
@@ -20,18 +20,18 @@ onMounted(() => {
     bot.loadFile(
         ['/brain.rive'],
         ()=> bot.sortReplies(),
-        (err: Error, filename: string, lineno: number) => {
+        (err: Error, filename: string, lineno: number)=> {
             console.error(`Error loading ${filename} at line ${lineno}: ${err}`);
         }
     );
 
-    const onKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = (e: KeyboardEvent)=> {
         if(e.key === "Escape" && isOpen.value)
             isOpen.value = false;
     };
 
     window.addEventListener("keydown", onKeyDown);
-    onUnmounted(() =>
+    onUnmounted(()=>
         window.removeEventListener("keydown", onKeyDown)
     );
 });
@@ -45,7 +45,7 @@ function toggleChat() {
         showTypingIndicator();
         clearTimeout(typingTimeout);
 
-        typingTimeout = setTimeout(() => {
+        typingTimeout = setTimeout(()=> {
             removeTypingIndicator();
             appendBotMessage("Hello there! I'm Tantan, Nathanne's personal website AI assistant. How can I help?");
         }, 1500);
@@ -63,8 +63,8 @@ function sendMessage() {
     showTypingIndicator();
     clearTimeout(typingTimeout);
 
-    typingTimeout = setTimeout(() => {
-        bot.replyAsync('local-user', text, null, (err: Error, reply: string) => {
+    typingTimeout = setTimeout(()=> {
+        bot.replyAsync('local-user', text, null, (err: Error, reply: string)=> {
             removeTypingIndicator();
             if(!err) {
                 if(reply.trim())
@@ -99,7 +99,7 @@ function removeTypingIndicator() {
 }
 
 function scrollToBottom() {
-    setTimeout(() => {
+    setTimeout(()=> {
         const bodyEl = document.getElementById('chat-body');
         if(bodyEl)
             bodyEl.scrollTop = bodyEl.scrollHeight;

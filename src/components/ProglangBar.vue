@@ -12,7 +12,7 @@ const props = defineProps({
     }
 });
 
-const barClass = computed(() => {
+const barClass = computed(()=> {
     if(props.progress >= 15)
         return "bg-success";
     else if(props.progress >= 10)

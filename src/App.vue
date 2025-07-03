@@ -17,14 +17,14 @@ import TantanAI from "./components/TantanAI.vue";
 
 const route = useRoute();
 watch(
-    () => route.fullPath,
-    async (_, __) => {
+    ()=> route.fullPath,
+    async (_, __)=> {
         showLoadingBar();
         window.scrollTo(0, 0);
     }
 );
 
-document.addEventListener('contextmenu', (event) => {
+document.addEventListener('contextmenu', (event)=> {
     event.preventDefault();
     return false;
 });
@@ -40,7 +40,7 @@ onMounted(()=> {
         }
 
         return response.json();
-    }).then((data: {date: string, title: string, message: string}[]) => {
+    }).then((data: {date: string, title: string, message: string}[])=> {
         let now = new Date();
         let isTodaysDate = (date: Date)=> {
             return now.getFullYear() === date.getFullYear() &&
