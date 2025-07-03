@@ -5,14 +5,53 @@ import { useRoute, useRouter } from "vue-router";
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 
+import ProjectCard from "@/components/ProjectCard.vue";
+
 const route = useRoute();
 const router = useRouter();
 
 const projectContent = ref("");
 const projectTitle = ref("");
 const projectLink = ref("");
+const randomProjects = ref([]);
 
-const loadArticle = async (id: string | string[]) => {
+const fetchAndSetRandomProjects = async(currentArticleId: string)=> {
+    try {
+        const response = await fetch("./database/projects.json");
+        if(!response.ok)
+            throw new Error(`Failed to fetch all projects: ${response.status}`);
+
+        const data = await response.json();
+        const projectsExcludingCurrent = data.filter(
+            (project: any)=> project.id !== Number(currentArticleId)
+        );
+        const currentArticleCategories = data.filter(
+            (project: any)=> project.id === Number(currentArticleId)
+        )[0].category;
+
+        const projectsInSameCategory = projectsExcludingCurrent.filter(
+            (project: any)=> {
+                const projectCategories: string[] = Array.isArray(
+                    project.category
+                ) ? project.category : [];
+                if(currentArticleCategories.length === 0 || projectCategories.length === 0)
+                    return false;
+
+                return projectCategories.some((cat: string)=>
+                    currentArticleCategories.includes(cat)
+                );
+            }
+        );
+
+        const shuffled = projectsInSameCategory.sort(()=> 0.5 - Math.random());
+        randomProjects.value = shuffled.slice(0, 3);
+    }
+    catch(error) {
+        randomProjects.value = [];
+    }
+};
+
+const loadArticle = async (id: string | string[])=> {
     const articleId = Array.isArray(id) ? id[0] : id;
     if(!articleId || isNaN(Number(articleId))) {
         router.push("/404");
@@ -30,14 +69,15 @@ const loadArticle = async (id: string | string[]) => {
 
         if(data.link)
             projectLink.value = data.link;
+        else projectLink.value = "";
 
-        setTimeout(() => {
-            if(document.querySelector(".main-section")) {
+        await fetchAndSetRandomProjects(articleId);
+        setTimeout(()=> {
+            if(document.querySelector(".main-section"))
                 baguetteBox.run(".main-section", {
                     animation: 'fadeIn',
                     noScrollBars: true,
                 });
-            }
         }, 100);
     }
     catch(error) {
@@ -47,8 +87,8 @@ const loadArticle = async (id: string | string[]) => {
 };
 
 watch(
-    () => route.query.id,
-    (newId) => {
+    ()=> route.query.id,
+    (newId)=> {
         if(newId)
             loadArticle(newId as string);
     },
@@ -71,5 +111,23 @@ watch(
     <hr/>
 
     <div class="main-section" id="main-content" v-html="projectContent"></div>
-    <br/>
+    <br/><hr/><br/>
+
+    <template v-if="randomProjects.length > 0">
+        <h2 align="center">You might also like</h2>
+        <div class="row equal-cols m-0 p-0">
+            <div
+                v-for="(item, index) in randomProjects"
+                :key="item.id"
+                :class="['col-12 col-lg-4']"
+                :style="{ 'margin-left': index === 1 ? 'auto' : '0', 'margin-right': index === 1 ? 'auto' : '0' }"
+            >
+                <ProjectCard :item="item" />
+            </div>
+        </div>
+        <br/>
+    </template>
+    <template v-else>
+        <p class="mb-4 pb-3" align="center">No other projects to recommend at the moment.</p>
+    </template>
 </template>
