@@ -12,7 +12,7 @@ export function hideLoadingBar(callback: ()=> void) {
         "loading"
     ) as HTMLElement;
 
-    setTimeout(() => {
+    setTimeout(()=> {
         loading.classList.remove("d-block");
         loading.classList.add("d-none");
 
