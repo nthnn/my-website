@@ -29,7 +29,7 @@ onMounted(async ()=> {
 </script>
 
 <template>
-    <h3 class="d-block fw-bold mt-4" id="expertise">Expertise</h3>
+    <h3 class="d-block fw-bold mt-4 shimmer" id="expertise">Expertise</h3>
     <hr/>
 
     <h4 class="d-block fw-bold mt-4">Most Used Languages</h4>

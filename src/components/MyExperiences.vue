@@ -6,7 +6,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
     <div class="my-card p-4 bg-primary" id="experiences">
         <div class="row mt-2 mb-4 text-white">
             <div class="col-lg-6">
-                <h3 class="fw-bold mb-0">Experiences</h3>
+                <h3 class="fw-bold mb-0 shimmer">Experiences</h3>
             </div>
 
             <div class="col-lg-6">

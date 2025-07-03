@@ -30,27 +30,26 @@ function getCurrentAge(): number {
             <br class="mobile-only"/>
 
             <div align="left">
-                <h1 class="display-3 text-white fw-light"><span class="fw-light">Hi, I'm</span> <b class="fw-bold">Nathanne</b></h1>
-                <h3 class="text-gray">Building <span class="build-text">softwares, apps, and more</span></h3>
-
-                <h4 class="desktop-only mt-3">
-                    <a href="https://github.com/nthnn" target="_blank"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://nthnn.medium.com/" target="_blank" class="ms-3"><i class="bi bi-medium"></i></a>
-                </h4>
-
-                <div class="w-100 mobile-only" align="center">
-                    <h4>
-                        <a href="https://github.com/nthnn" target="_blank"><i class="text-gray bi bi-github"></i></a>
-                        <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3"><i class="text-gray bi bi-linkedin"></i></a>
-                        <a href="https://nthnn.medium.com/" target="_blank" class="ms-3"><i class="text-gray bi bi-medium"></i></a>
-                    </h4>
-                </div>
+                <h1 class="display-3 text-white fw-light"><span class="fw-light">Hi, I'm</span> <b class="fw-bold shimmer">Nathanne</b></h1>
+                <h3 class="text-gray lead">Building softwares, apps, and more</h3>
 
                 <hr/>
-                <pre class="code desktop-only"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
+                <pre class="code desktop-only"><span class="hl-text blue-hover">.learn()</span> <span class="hl-text blue-hover">.code()</span> <span class="hl-text blue-hover">.create()</span></pre>
+
                 <p>{{getCurrentAge()}}-year-old experienced software engineer from Metro Manila, Philippines, with a strong foundation in software engineering, leadership experience, and customer service.</p>
                 <pre class="code mobile-only w-100" align="center"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
+
+                <h4 class="desktop-only mt-3">
+                    <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://nthnn.medium.com/" target="_blank" class="ms-3 blue-hover"><i class="bi bi-medium"></i></a>
+                </h4>
+
+                <h4 class="w-100 mobile-only" align="center">
+                    <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://nthnn.medium.com/" target="_blank" class="ms-3 blue-hover"><i class="bi bi-medium"></i></a>
+                </h4>
             </div>
         </div>
 
@@ -69,10 +68,11 @@ function getCurrentAge(): number {
 	width: fit-content;
 }
 
-.build-text {
-    background: -webkit-linear-gradient(180deg, var(--bs-info), var(--bs-danger));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.blue-hover {
+    transition: all 0.3s ease-in-out;
+}
+
+.blue-hover:hover {
+    color: var(--bs-info) !important;
 }
 </style>

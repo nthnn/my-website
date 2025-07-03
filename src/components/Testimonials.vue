@@ -1,7 +1,7 @@
 <template>
     <div class="my-card p-4 bg-primary" id="experiences">
         <div class="mt-2 mb-4">
-            <h3 class="d-block fw-bold" id="testimonials">Testimonials</h3>
+            <h3 class="d-block fw-bold shimmer" id="testimonials">Testimonials</h3>
 
             <div class="row pt-4">
                 <div class="col-lg-4 p-4" align="center">
