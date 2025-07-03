@@ -57,7 +57,7 @@ function loadGallery() {
         }
 
         return response.json();
-    }).then((data: {src: string, caption: string, date: string}[]) => {
+    }).then((data: {src: string, caption: string, date: string}[])=> {
         let content = "<div class=\"row\">", capId = 1;
 
         data.reverse();
@@ -88,7 +88,7 @@ function loadGallery() {
                 const anchor = document.getElementById("caption-" + i);
 
                 if(span && anchor)
-                    span.addEventListener("click", () => clickImage(anchor));
+                    span.addEventListener("click", ()=> clickImage(anchor));
             }
 
             baguetteBox.run(".gallery-container", {
@@ -121,7 +121,7 @@ function loadGallery() {
     document.addEventListener("scroll", reveal);
 }
 
-onMounted(() => loadGallery());
+onMounted(()=> loadGallery());
 </script>
 
 <template>

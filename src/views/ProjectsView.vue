@@ -18,8 +18,8 @@ const allProjects = ref([]);
 const filterInput = ref("");
 const selectedCategory = ref("category");
 
-const filteredProjects = computed(() => {
-    return allProjects.value.filter((item: any) => {
+const filteredProjects = computed(()=> {
+    return allProjects.value.filter((item: any)=> {
         const matchesCategory = selectedCategory.value === "category" ||
             item.category.includes(selectedCategory.value);
         const matchesFilter = filterInput.value === "" ||
@@ -30,10 +30,10 @@ const filteredProjects = computed(() => {
     });
 });
 
-const loadProjects = () => {
+const loadProjects = ()=> {
     fetch("./database/projects.json").then(response => {
         if(!response.ok) {
-            hideLoadingBar(() => {});
+            hideLoadingBar(()=> {});
             throw new Error("Network response was not ok");
         }
 
@@ -51,10 +51,10 @@ const loadProjects = () => {
             else filterInput.value = decodeURIComponent(searchValue);
         }
 
-        hideLoadingBar(() => {});
-    }).catch((e) => {
+        hideLoadingBar(()=> {});
+    }).catch((e)=> {
         console.error("Error loading projects:", e);
-        hideLoadingBar(() => {});
+        hideLoadingBar(()=> {});
 
         const cannotLoad = document.getElementById(
             "cannot-load"
@@ -67,7 +67,7 @@ const loadProjects = () => {
     });
 };
 
-watch(filterInput, (newValue) => {
+watch(filterInput, (newValue)=> {
     if(newValue !== "") {
         addParameter("search", encodeURIComponent(newValue));
     } else {
@@ -114,7 +114,7 @@ onMounted(loadProjects);
         <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal"><i class="bi bi-funnel"></i> Filter<span class="desktop-only"> Projects</span></button>
     </div>
 
-    <div class="mobile-break">
+    <div class="mobile-only">
         <br/>
     </div>
 
@@ -168,35 +168,6 @@ onMounted(loadProjects);
 .rotating-gear {
   animation: rotate-gear 2s linear infinite;
   display: inline-block;
-}
-
-.row.equal-cols {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-  
-.row.equal-cols:before, .row.equal-cols:after {
-	display: block;
-}
-
-.row.equal-cols > [class*='col-'] {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    margin-top: 22px;
-}
-  
-.row.equal-cols > [class*='col-'] > * {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto; 
 }
     
 @keyframes rotate-gear {
