@@ -79,7 +79,7 @@ onMounted(loadProjects);
 </script>
 
 <template>
-    <h1 align="center">Projects</h1>
+    <h1 class="shimmer" align="center">Projects</h1>
     <div class="modal fade" id="filter-modal" data-bs-theme="dark">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border border-gray">

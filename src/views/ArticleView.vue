@@ -114,7 +114,7 @@ watch(
     <br/><hr/><br/>
 
     <template v-if="randomProjects.length > 0">
-        <h2 align="center">You might also like</h2>
+        <h2 class="shimmer" align="center">You might also like</h2>
         <div class="row equal-cols m-0 p-0">
             <div
                 v-for="(item, index) in randomProjects"
@@ -128,6 +128,6 @@ watch(
         <br/>
     </template>
     <template v-else>
-        <p class="mb-4 pb-3" align="center">No other projects to recommend at the moment.</p>
+        <p class="mb-4 pb-3" align="center"><span class="shimmer">No other projects to recommend at the moment.</span></p>
     </template>
 </template>

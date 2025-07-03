@@ -125,7 +125,7 @@ onMounted(()=> loadGallery());
 </script>
 
 <template>
-    <h1 align="center">Gallery</h1>
+    <h1 class="shimmer" align="center">Gallery</h1>
     <hr/>
 
     <div id="gallery-loading" align="center">
