@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { onBeforeRouteLeave, useRoute, useRouter } from "vue-router";
 
 import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 
 import ProjectCard from "@/components/ProjectCard.vue";
+import { animateTitle } from "@/scripts/title";
 
 const route = useRoute();
 const router = useRouter();
@@ -51,6 +52,7 @@ const fetchAndSetRandomProjects = async(currentArticleId: string)=> {
     }
 };
 
+let animateInterval: number = 0;
 const loadArticle = async (id: string | string[])=> {
     const articleId = Array.isArray(id) ? id[0] : id;
     if(!articleId || isNaN(Number(articleId))) {
@@ -66,6 +68,10 @@ const loadArticle = async (id: string | string[])=> {
         const data = await response.json();
         projectTitle.value = document.title = data.title;
         projectContent.value = data.content;
+
+        animateInterval = animateTitle(
+            "Project: " + data.title + " | Nathanne Isip"
+        );
 
         if(data.link)
             projectLink.value = data.link;
@@ -94,6 +100,8 @@ watch(
     },
     {immediate: true}
 );
+
+onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
 
 <template>
@@ -118,7 +126,7 @@ watch(
         <div class="row equal-cols m-0 p-0">
             <div
                 v-for="(item, index) in randomProjects"
-                :key="item.id"
+                :key="(item as any).id"
                 :class="['col-12 col-lg-4']"
                 :style="{ 'margin-left': index === 1 ? 'auto' : '0', 'margin-right': index === 1 ? 'auto' : '0' }"
             >

@@ -4,9 +4,10 @@ import MyExperiences from "@/components/MyExperiences.vue";
 import MyExpertise from "@/components/MyExpertise.vue";
 import Testimonials from "@/components/Testimonials.vue";
 
-import { useRoute } from "vue-router";
+import { onBeforeRouteLeave, useRoute } from "vue-router";
 import { watch, onMounted } from "vue";
 import { hideLoadingBar } from "@/scripts/loading";
+import { animateTitle } from "@/scripts/title";
 
 const route = useRoute();
 watch(
@@ -14,7 +15,14 @@ watch(
     async (_, __)=>
         hideLoadingBar(()=> {})
 );
-onMounted(hideLoadingBar);
+
+let animateInterval: number = 0;
+onMounted(()=> {
+    animateInterval = animateTitle("Homepage | Nathanne Isip");
+    hideLoadingBar(()=> {});
+});
+
+onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
 
 <template>

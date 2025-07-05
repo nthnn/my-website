@@ -4,7 +4,8 @@ import {
     watch,
     onMounted,
     ref,
-    computed
+    computed,
+    onUnmounted
 } from "vue";
 import {
     addParameter,
@@ -13,6 +14,8 @@ import {
 } from "@/scripts/params";
 
 import ProjectCard from "@/components/ProjectCard.vue";
+import { animateTitle } from "@/scripts/title";
+import { onBeforeRouteLeave } from "vue-router";
 
 const allProjects = ref([]);
 const filterInput = ref("");
@@ -75,7 +78,13 @@ watch(filterInput, (newValue)=> {
     }
 });
 
-onMounted(loadProjects);
+let animateInterval: number = 0;
+onMounted(()=> {
+    animateInterval = animateTitle("My Projects | Nathanne Isip");
+    loadProjects();
+});
+
+onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
 
 <template>

@@ -10,6 +10,8 @@ import {
     getParameters,
     removeParameter
 } from "@/scripts/params";
+import { animateTitle } from "@/scripts/title";
+import { onBeforeRouteLeave } from "vue-router";
 
 var clickImage = (e: HTMLElement)=> {
     e.dispatchEvent(new MouseEvent("click", {
@@ -121,7 +123,13 @@ function loadGallery() {
     document.addEventListener("scroll", reveal);
 }
 
-onMounted(()=> loadGallery());
+let animateInterval: number = 0;
+onMounted(()=> {
+    animateInterval = animateTitle("Gallery | Nathanne Isip");
+    loadGallery();
+});
+
+onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
 
 <template>
