@@ -33,7 +33,7 @@
                         <img src="@/assets/images/testimonials/bryan.png" class="rounded-circle w-50" />
                     </a>
 
-                    <h4 class="pt-4 mb-0">Mark Kenneth</h4>
+                    <h4 class="pt-4 mb-0">Bryan Emanuel</h4>
                     <small>BS Computer Science Graduate</small>
 
                     <hr/>
