@@ -25,6 +25,13 @@ const showArticle = () => {
     isLoading.value = false;
     hasError.value = false;
     showArticleContent.value = true;
+
+    setTimeout(()=> {
+        baguetteBox.run(".main-article", {
+            animation: "fadeIn",
+            noScrollBars: true,
+        });
+    }, 10);
 };
 
 const showError = () => {
@@ -52,7 +59,8 @@ const fetchAndSetRandomProjects = async(currentArticleId: string)=> {
                 const projectCategories: string[] = Array.isArray(
                     project.category
                 ) ? project.category : [];
-                if(currentArticleCategories.length === 0 || projectCategories.length === 0)
+                if(currentArticleCategories.length === 0 ||
+                    projectCategories.length === 0)
                     return false;
 
                 return projectCategories.some((cat: string)=>
@@ -61,9 +69,11 @@ const fetchAndSetRandomProjects = async(currentArticleId: string)=> {
             }
         );
 
-        const shuffled = projectsInSameCategory.sort(()=> 0.5 - Math.random());
-        randomProjects.value = shuffled.slice(0, 3);
+        const shuffled = projectsInSameCategory.sort(
+            ()=> 0.5 - Math.random()
+        );
 
+        randomProjects.value = shuffled.slice(0, 3);
         hideLoadingBar(showArticle);
     }
     catch(error) {
@@ -102,13 +112,6 @@ const loadArticle = async (id: string | string[])=> {
         else projectLink.value = "";
 
         await fetchAndSetRandomProjects(articleId);
-        setTimeout(()=> {
-            if(document.querySelector(".main-section"))
-                baguetteBox.run(".main-section", {
-                    animation: 'fadeIn',
-                    noScrollBars: true,
-                });
-        }, 100);
     }
     catch(error) {
         console.error("Error loading article:", error);
@@ -162,7 +165,9 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
         <br/>
     </div>
 
-    <div v-if="showArticleContent" class="main-section" id="main-content" v-html="projectContent"></div>
+    <div class="main-article">
+        <div v-if="showArticleContent" class="main-section" id="main-content" v-html="projectContent"></div>
+    </div>
 
     <template v-if="!isLoading && randomProjects.length > 0">
         <br/><hr/><br/>
