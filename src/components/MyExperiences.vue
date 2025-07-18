@@ -23,7 +23,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
         <ul class="timeline mt-4">
             <li class="pb-4">
                 <img src="@/assets/images/companies/concentrix.png" width="240" class="mb-2 pb-4" />
-                <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><sup>(Cubao, Quezon City)</sup></sub></span></h4>
+                <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Cubao, Quezon City)</sup></sub></span></h4>
                 <h4><span class="fw-light">Wireless Support Specialist</span></h4>
                 <small class="fw-light">August 2024 - Present</small>
 
@@ -44,7 +44,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
             </li>
             <li class="pb-4">
                 <img src="@/assets/images/companies/upwork.png" width="160" class="mb-2 pb-4" />
-                <h4><b class="fw-bold">Virtual Assistance</b><span class="fw-light">&nbsp;<sub><sup>(Remote Job)</sup></sub></span></h4>
+                <h4><b class="fw-bold">Virtual Assistance</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Remote Job)</sup></sub></span></h4>
                 <h4><span class="fw-light">Healthcare Administrative Assistant</span></h4>
                 <small class="fw-light">January 2024 - June 2024</small>
 
@@ -56,7 +56,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
             </li>
             <li>
                 <img src="@/assets/images/companies/lawson.png" width="180" class="mb-2 pb-4" />
-                <h4><b class="fw-bold">Lawson Philippines</b><span class="fw-light">&nbsp;<sub><sup>(EDSA, Pasay City)</sup></sub></span></h4>
+                <h4><b class="fw-bold">Lawson Philippines</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(EDSA, Pasay City)</sup></sub></span></h4>
                 <h4><span class="fw-light">Store Operations Team Leader</span></h4>
                 <small class="fw-light">September 2023 - December 2023</small>
 
