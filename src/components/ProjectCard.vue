@@ -21,13 +21,6 @@ function capitalizeFirstLetter(str: string): string {
     return str.length === 0 ? "" :
         str.charAt(0).toUpperCase() + str.slice(1);
 }
-
-props.item.category.forEach((cat, index)=> {
-    if(cat == "ai")
-        props.item.category[index] = "AI";
-    else props.item.category[index] =
-        capitalizeFirstLetter(cat);
-});
 </script>
 
 <template>
@@ -44,7 +37,7 @@ props.item.category.forEach((cat, index)=> {
 
             <div class="d-flex flex-wrap gap-1 mt-2 mb-4">
                 <span v-for="cat in props.item.category" :key="cat" class="badge bg-info">
-                    {{ cat }}
+                    {{ cat == "ai" ? "AI" : capitalizeFirstLetter(cat) }}
                 </span>
             </div>
 
