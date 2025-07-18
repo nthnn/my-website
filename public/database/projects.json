@@ -43,7 +43,7 @@
         "id": 6,
         "title": "Fakfak",
         "short_description": "A fun 2D game inspired from Flappy Bird.",
-        "description": "My very first game development collaboration with <a href=\"https://www.instagram.com/lady.selenee/\" target=\"_blank\" class=\"text-reset\">Lady Selene</a>. Heavily inspired from the famous game called &quot;Flappy Bird.&quot;",
+        "description": "My very first game development collaboration with Lady Selene. Heavily inspired from the famous game called &quot;Flappy Bird.&quot;",
         "thumbnail": "project_07",
         "category": ["app", "game"]
     },
