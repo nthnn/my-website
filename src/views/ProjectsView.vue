@@ -120,7 +120,7 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
 
     <div class="input-group mb-3">
         <input type="text" class="form-control form-input bg-primary text-white border border-gray" placeholder="Search a project..." id="filter" autocomplete="off" aria-describedby="search-bar" v-model="filterInput">
-        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal"><i class="bi bi-funnel"></i> Filter<span class="desktop-only"> Projects</span></button>
+        <button class="btn btn-info" type="button" id="search-bar" data-bs-toggle="modal" data-bs-target="#filter-modal"><i class="bi bi-funnel"></i><span class="desktop-only"> Filter Projects</span></button>
     </div>
 
     <div class="mobile-only">
