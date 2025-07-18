@@ -1,0 +1,5 @@
+{
+    "title": "DNA Sequence Identifier",
+    "link": "https://github.com/nthnn/dna_sequence_identification",
+    "content": "<p>DNA sequence classification AI is based on the dataset from the archive of UC Irvine Machine Learning Repository. It takes an input DNA sequence and outputs the promoter type (+ or -) and the identification class from the inference. The model is using the Random Forest Classification algorithm.</p><br/><a href=\"/images/projects/project_44_01.png\"><img src=\"/images/projects/project_44_01.png\" class=\"w-100\" /></a>"
+}
