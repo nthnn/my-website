@@ -6,7 +6,7 @@
             <div class="row pt-4">
                 <div class="col-lg-4 p-4" align="center">
                     <a target="_blank" href="https://www.instagram.com/lady.selenee/">
-                        <img src="@/assets/images/testimonials/ladyselene.png" class="rounded-circle w-50" />
+                        <img src="@/assets/images/testimonials/ladyselene.png" class="rounded-circle border border-gray w-50" />
                     </a>
 
                     <h4 class="pt-4 mb-0">Lady Selene</h4>
@@ -18,7 +18,7 @@
 
                 <div class="col-lg-4 p-4" align="center">
                     <a target="_blank" href="https://www.linkedin.com/in/elijahjudson/">
-                        <img src="@/assets/images/testimonials/elijah.png" class="rounded-circle w-50" />
+                        <img src="@/assets/images/testimonials/elijah.png" class="rounded-circle border border-gray w-50" />
                     </a>
 
                     <h4 class="pt-4 mb-0">Elijah Judson</h4>
@@ -30,7 +30,7 @@
 
                 <div class="col-lg-4 p-4" align="center">
                     <a target="_blank" href="https://www.instagram.com/bryy.em/">
-                        <img src="@/assets/images/testimonials/bryan.png" class="rounded-circle w-50" />
+                        <img src="@/assets/images/testimonials/bryan.png" class="rounded-circle border border-gray w-50" />
                     </a>
 
                     <h4 class="pt-4 mb-0">Bryan Emanuel</h4>
