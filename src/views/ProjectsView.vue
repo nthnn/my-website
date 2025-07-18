@@ -4,8 +4,7 @@ import {
     watch,
     onMounted,
     ref,
-    computed,
-    onUnmounted
+    computed
 } from "vue";
 import {
     addParameter,
@@ -21,13 +20,30 @@ const allProjects = ref([]);
 const filterInput = ref("");
 const selectedCategory = ref("category");
 
+const currentPage = ref(1);
+const itemsPerPage = 9;
+
+const paginatedProjects = computed(() => {
+    const startIndex = (currentPage.value - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredProjects.value.slice(startIndex, endIndex);
+});
+
+const totalPages = computed(() => {
+    return Math.ceil(filteredProjects.value.length / itemsPerPage);
+});
+
 const filteredProjects = computed(()=> {
     return allProjects.value.filter((item: any)=> {
         const matchesCategory = selectedCategory.value === "category" ||
             item.category.includes(selectedCategory.value);
         const matchesFilter = filterInput.value === "" ||
-            item.title.toLowerCase().includes(filterInput.value.toLowerCase()) ||
-            item.description.toLowerCase().includes(filterInput.value.toLowerCase());
+            item.title.toLowerCase().includes(
+                filterInput.value.toLowerCase()
+            ) ||
+            item.description.toLowerCase().includes(
+                filterInput.value.toLowerCase()
+            );
 
         return matchesCategory && matchesFilter;
     });
@@ -44,15 +60,24 @@ const loadProjects = ()=> {
     }).then(data => {
         setTimeout(()=> {
             allProjects.value = data.reverse();
-        }, 2500);
 
-        let params = getParameters();
-        if(params.has("search")) {
-            let searchValue = params.get("search") || "";
-            if(searchValue === "")
-                removeParameter("search");
-            else filterInput.value = decodeURIComponent(searchValue);
-        }
+            let params = getParameters();
+            if(params.has("search")) {
+                let searchValue = params.get("search") || "";
+                if(searchValue === "")
+                    removeParameter("search");
+                else filterInput.value = decodeURIComponent(searchValue);
+            }
+
+            if (params.has("page")) {
+                const pageValue = parseInt(params.get("page") || "1");
+                if(!isNaN(pageValue) && pageValue >= 1)
+                    currentPage.value = pageValue;
+                else removeParameter("page");
+            }
+            else removeParameter("page");
+
+        }, 2500);
 
         hideLoadingBar(()=> {});
     }).catch((e)=> {
@@ -71,11 +96,18 @@ const loadProjects = ()=> {
 };
 
 watch(filterInput, (newValue)=> {
-    if(newValue !== "") {
+    if(newValue !== "")
         addParameter("search", encodeURIComponent(newValue));
-    } else {
-        removeParameter("search");
-    }
+    else removeParameter("search");
+
+    currentPage.value = 1;
+});
+
+watch(selectedCategory, ()=> currentPage.value = 1);
+watch(currentPage, (newValue) => {
+    if(newValue > 1)
+        addParameter("page", newValue.toString());
+    else removeParameter("page");
 });
 
 let animateInterval: number = 0;
@@ -83,6 +115,32 @@ onMounted(()=> {
     animateInterval = animateTitle("My Projects | Nathanne Isip");
     loadProjects();
 });
+
+const goToPage = (page: number) => {
+    if (page >= 1 && page <= totalPages.value) {
+        currentPage.value = page;
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+}, nextPage = () => {
+    if (currentPage.value < totalPages.value) {
+        currentPage.value++;
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+}, prevPage = () => {
+    if (currentPage.value > 1) {
+        currentPage.value--;
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+};
 
 onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
@@ -128,9 +186,9 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
     </div>
 
     <div id="projects" class="row equal-cols m-0 p-0" align="center">
-        <template v-if="filteredProjects.length > 0">
+        <template v-if="paginatedProjects.length > 0">
             <div
-                v-for="(item, index) in filteredProjects"
+                v-for="(item, _) in paginatedProjects"
                 :key="(item as any).id"
                 :class="['col-12 col-lg-4 mt-4']"
             >
@@ -167,6 +225,29 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
             <br/>
         </div>
     </div>
+
+    <nav v-if="totalPages > 1 && filteredProjects.length > 0" aria-label="Project pagination" class="mt-4">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                <a class="page-link" href="#" @click.prevent="prevPage" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li
+                class="page-item"
+                v-for="page in totalPages"
+                :key="page"
+                :class="{ active: currentPage === page }"
+            >
+                <a class="page-link" href="#" @click.prevent="goToPage(page)">{{ page }}</a>
+            </li>
+            <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                <a class="page-link" href="#" @click.prevent="nextPage" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </template>
 
 <style scoped>
@@ -186,5 +267,24 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
   to {
     transform: rotate(360deg);
   }
+}
+
+.page-link {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-gray);
+    color: var(--bs-info);
+}
+
+.page-item.active .page-link {
+    background-color: var(--bs-info);
+    border-color: var(--bs-info);
+    color: var(--bs-primary);
+}
+
+.page-item.disabled .page-link {
+    color: var(--bs-gray-dark);
+    pointer-events: none;
+    background-color: var(--bs-primary);
+    border-color: var(--bs-gray);
 }
 </style>
