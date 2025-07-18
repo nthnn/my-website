@@ -20,7 +20,10 @@ watch(
     ()=> route.fullPath,
     async (_, __)=> {
         showLoadingBar();
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 );
 
