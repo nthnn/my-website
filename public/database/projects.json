@@ -334,5 +334,21 @@
         "description": "MDIF is a lightweight image format with minimal data structure and integration with Diwa in mind.",
         "thumbnail": "project_43",
         "category": ["software"]
+    },
+    {
+        "id": 43,
+        "title": "DNA Identifier",
+        "short_description": "DNA Sequence Identifier",
+        "description": "AI model for identifying deoxyribonucleic sequence using Random Forest Classification algorithm.",
+        "thumbnail": "project_44",
+        "category": ["ai"]
+    },
+    {
+        "id": 46,
+        "title": "Feihua Anti-Virus",
+        "short_description": "Windows Anti-Virus Software",
+        "description": "An antivirus/antimalware program that verifies file hashes against the VirusShare.com database for Windows.",
+        "thumbnail": "project_46",
+        "category": ["software"]
     }
 ]
