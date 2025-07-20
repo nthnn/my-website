@@ -69,7 +69,7 @@ const loadProjects = ()=> {
                 else filterInput.value = decodeURIComponent(searchValue);
             }
 
-            if (params.has("page")) {
+            if(params.has("page")) {
                 const pageValue = parseInt(params.get("page") || "1");
                 if(!isNaN(pageValue) && pageValue >= 1)
                     currentPage.value = pageValue;
@@ -117,7 +117,7 @@ onMounted(()=> {
 });
 
 const goToPage = (page: number) => {
-    if (page >= 1 && page <= totalPages.value) {
+    if(page >= 1 && page <= totalPages.value) {
         currentPage.value = page;
         window.scrollTo({
             top: 0,
@@ -125,7 +125,7 @@ const goToPage = (page: number) => {
         });
     }
 }, nextPage = () => {
-    if (currentPage.value < totalPages.value) {
+    if(currentPage.value < totalPages.value) {
         currentPage.value++;
         window.scrollTo({
             top: 0,
@@ -133,7 +133,7 @@ const goToPage = (page: number) => {
         });
     }
 }, prevPage = () => {
-    if (currentPage.value > 1) {
+    if(currentPage.value > 1) {
         currentPage.value--;
         window.scrollTo({
             top: 0,
