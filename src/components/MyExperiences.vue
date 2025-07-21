@@ -25,7 +25,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
                 <img src="@/assets/images/companies/concentrix.png" width="240" class="mb-2 pb-4" />
                 <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Cubao, Quezon City)</sup></sub></span></h4>
                 <h4><span class="fw-light">Wireless Support Specialist</span></h4>
-                <small class="fw-light">August 2024 - Present</small>
+                <small class="fw-light">August 2024 - August 2025</small>
 
                 <ul class="mt-2">
                     <li>Provided excellent customer service to telecommunication company clients, resolving inquiries and issues efficiently.</li>
