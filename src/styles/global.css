@@ -142,6 +142,14 @@ ul.timeline > li:before {
     flex: 1 1 auto; 
 }
 
+.blue-hover {
+    transition: all 0.3s ease-in-out;
+}
+
+.blue-hover:hover {
+    color: var(--bs-info) !important;
+}
+
 .shimmer {
 	-webkit-mask: linear-gradient(-60deg,#000 30%,#0005,#000 70%) right/300% 100%;
 	background-repeat: no-repeat;
@@ -154,7 +162,7 @@ ul.timeline > li:before {
 	}
 }
 
-@media only screen and (max-width: 771px) {
+@media only screen and (max-width: 769px) {
     .desktop-only { display: none; }
 
     .mobile-only { display: block; }
@@ -164,7 +172,7 @@ ul.timeline > li:before {
     }
 }
 
-@media only screen and (min-width: 770px) {   
+@media only screen and (min-width: 768px) {   
     .mobile-only { display: none; }
 
     :root {
