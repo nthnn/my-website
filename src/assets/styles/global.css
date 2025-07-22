@@ -90,6 +90,15 @@ ul.timeline > li:before {
     z-index: 400;
 }
 
+.modal {
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    background: rgba(26, 26, 26, 0.2) !important;
+    border-style: solid !important;
+    border-width: 0px 0px 1px 0px !important;
+    border-color: rgba(85, 89, 92, 0.5) !important;
+}
+
 .my-card {
     border: 1px solid var(--bs-gray-700) !important;
 }
