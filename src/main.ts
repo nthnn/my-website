@@ -1,5 +1,5 @@
-import "./assets/styles/bootstrap.min.css";
-import "./assets/styles/global.css";
+import "./styles/bootstrap.min.css";
+import "./styles/global.css";
 
 import "animate.css";
 import "bootstrap";
