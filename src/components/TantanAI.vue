@@ -124,7 +124,7 @@ function scrollToBottom() {
                     (msg as any).type === 'typing' ? 'typing-wrapper' : ''
                 ]">
                     <template v-if="(msg as any).type === 'bot' || (msg as any).type === 'typing'">
-                        <img src="@/assets/images/tantan.png" class="bot-profile" alt="Bot" />
+                        <img src="/images/tantan.png" class="bot-profile" alt="Bot" />
                     </template>
 
                     <div v-if="(msg as any).type === 'user'" class="user-msg text-dark">{{ (msg as any).text }}</div>
@@ -172,7 +172,7 @@ function scrollToBottom() {
 #chat-button {
     order: 2;
     margin-top: 0.5rem;
-    background-image: url('@/assets/images/tantan.png');
+    background-image: url('/images/tantan.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -213,7 +213,7 @@ function scrollToBottom() {
 
 .user-msg {
     align-self: flex-end;
-    background-color: #daf0fe;
+    background-color: var(--bs-info);
     padding: 0.5rem 0.75rem;
     margin: 0.25rem 0;
     max-width: 100%;
@@ -226,7 +226,7 @@ function scrollToBottom() {
 }
 
 .bot-msg {
-    background-color: #f5f5f5;
+    background-color: var(--bs-white);
     padding: 0.5rem 0.75rem;
     max-width: 80%;
 }
