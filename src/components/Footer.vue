@@ -169,6 +169,7 @@ const showMessageAndModal = (msg: string, type: string) => {
 };
 </script>
 <template>
+    <br/>
     <div class="modal fade" id="subscriptionModal" tabindex="-1" aria-labelledby="subscriptionModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-primary border border-gray">
@@ -190,10 +191,18 @@ const showMessageAndModal = (msg: string, type: string) => {
         <div class="container pt-4">
             <div class="row pt-4 pb-0">
                 <div class="col-12 col-lg-4">
-                    <img src="/images/nthnn_logo.png" class="w-50 mb-2" />
-                    <h2 class="shimmer">Nathanne Isip</h2>
-                    <p class="mt-4">&copy; {{ currentYear }} &mdash; All rights reserved.</p>
-                    <hr class="mobile-only my-4" />
+                    <div class="desktop-only">
+                        <img src="/images/nthnn_logo.png" class="w-50 mb-2" />
+                        <h2 class="shimmer">Nathanne Isip</h2>
+                        <p class="mt-4">&copy; {{ currentYear }} &mdash; All rights reserved.</p>
+                        <hr class="mobile-only my-4" />
+                    </div>
+                    <div class="mobile-only" align="center">
+                        <img src="/images/nthnn_logo.png" class="w-50 mb-2" />
+                        <h2 class="shimmer">Nathanne Isip</h2>
+                        <p class="mt-4">&copy; {{ currentYear }} &mdash; All rights reserved.</p>
+                        <hr class="mobile-only my-4" />
+                    </div>
                 </div>
 
                 <div class="col-12 mobile-only">
@@ -231,10 +240,12 @@ const showMessageAndModal = (msg: string, type: string) => {
                         </div>
 
                         <div class="col-6">
-                            <RouterLink to="/quote" class="text-decoration-none blue-hover d-block pt-2">Quote</RouterLink>
+                            <RouterLink to="/quote" class="text-decoration-none blue-hover d-block">Quote</RouterLink>
                             <RouterLink to="/contacts" class="text-decoration-none blue-hover d-block pt-2">Contacts</RouterLink>
+                            <a href="https://github.com/nthnn" class="text-decoration-none blue-hover d-block pt-2" target="_blank">GitHub</a>
                         </div>
                     </div>
+                    <br/>
                 </div>
 
                 <div class="col-lg-5 desktop-only">
