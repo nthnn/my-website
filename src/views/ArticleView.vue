@@ -96,8 +96,9 @@ const loadArticle = async (id: string | string[])=> {
 
     try {
         const response = await fetch(`./database/projects/${articleId}.json`);
-        if(!response.ok)
-            throw new Error(`Failed to fetch project data: ${response.status}`);
+        if(!response.ok ||
+            response.headers.get("Content-Type") != "application/json"
+        ) throw new Error(`Failed to fetch project data: ${response.status}`);
 
         const data = await response.json();
         projectTitle.value = document.title = data.title;
@@ -114,9 +115,7 @@ const loadArticle = async (id: string | string[])=> {
         await fetchAndSetRandomProjects(articleId);
     }
     catch(error) {
-        console.error("Error loading article:", error);
-        router.push("/404");
-
+        setTimeout(()=> hasError.value = true, 2200);
         hideLoadingBar(showError);
     }
 };
@@ -149,20 +148,42 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
                 <a :href="projectLink" class="btn btn-info" target="_blank"><i class="bi bi-github"></i><span class="desktop-only"> View on GitHub</span></a>
             </div>
         </div>
+        <hr class="mt-2"/>
     </div>
-    <hr/>
 
     <div v-if="isLoading" id="loading-section" class="d-block" align="center">
-        <br/>
-        <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
-        <p class="mt-3">Article is currently being loaded, please wait...</p>
-        <br/>
+        <div class="d-block w-100">
+            <br/>
+            <div class="p-4 bg-primary col-12 col-lg-6">
+                <br/><br/><br/>
+            
+                <center>
+                    <img src="/images/gear.png" class="rotating-gear mt-2" width="72" />
+                </center>
+                <p class="mt-3">Article is currently being loaded, please wait...</p>
+            
+                <br/><br/><br/>
+            </div>
+            <br/>
+        </div>
     </div>
 
     <div v-if="hasError" id="error-section" class="d-block" align="center">
-        <br/>
-        <p class="mt-3">Something went wrong while trying to load article.</p>
-        <br/>
+        <div class="d-block w-100">
+            <br/>
+            <div class="p-4 bg-primary col-12 col-lg-6">
+                <br/><br/><br/>
+            
+                <center>
+                    <img src="/images/warning.png" class="mt-2" width="72" />
+                </center>
+                <p class="mt-3">Something went wrong while trying to load article.</p>
+                <RouterLink to="/projects" class="btn btn-info mt-2">Go back to projects</RouterLink>
+
+                <br/><br/><br/>
+            </div>
+            <br/>
+        </div>
     </div>
 
     <div class="main-article">

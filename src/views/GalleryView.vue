@@ -3,7 +3,7 @@ import "baguettebox.js/dist/baguetteBox.min.css";
 import baguetteBox from "baguettebox.js/dist/baguetteBox.min.js";
 
 import { hideLoadingBar } from "@/scripts/loading";
-import { onMounted } from "vue";
+import { ref, onMounted } from "vue";
 
 import {
     addParameter,
@@ -111,12 +111,13 @@ function loadGallery() {
         }
     })
     .catch(()=> {
-        const errorMessage = document.getElementById("error-message");
-        if(errorMessage) {
-            errorMessage.classList.remove("d-none");
-            errorMessage.classList.add("animate__animated", "animate__fadeIn");
-        }
-
+        setTimeout(()=> {
+            const errorMessage = document.getElementById("error-message");
+            if(errorMessage) {
+                errorMessage.classList.remove("d-none");
+                errorMessage.classList.add("animate__animated", "animate__fadeIn");
+            }
+        }, 2200);
         hideLoadingBar(showGallery);
     });
 
@@ -134,33 +135,43 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
 
 <template>
     <h1 class="shimmer" align="center">Gallery</h1>
-    <hr/>
 
     <div id="gallery-loading" align="center">
-        <br/>
-
-        <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
-        <p class="mt-3">Gallery is currently being loaded, please wait...</p>
+        <hr/>
+        <div class="p-4 bg-primary col-12 col-lg-6">
+            <br/><br/><br/>
+        
+            <center>
+                <img src="/images/gear.png" class="rotating-gear mt-2" width="72" />
+            </center>
+            <p class="mt-3">Gallery is currently being loaded, please wait...</p>
+        
+            <br/><br/><br/>
+        </div>
         <br/>
     </div>
 
     <div id="gallery" class="d-none" align="center">
+        <hr/>
         <div class="gallery-container"></div>
     </div>
 
     <div id="error-message" class="d-none animate__animated" align="center">
-        <br/>
-        <div id="error-card" class="card card-body border border-gray p-4 bg-dark animate__animated">
-            <div align="center">
-                <h1>&#x26A0;</h1>
-                <h3>Cannot load gallery.</h3>
-                <p>Something went wrong while trying to fetch data.</p>
+        <div class="w-100">
+            <br/>
+            <div class="p-4 bg-primary col-12 col-lg-6">
+                <br/><br/><br/>
+            
+                <center>
+                    <img src="/images/warning.png" class="mt-2" width="72" />
+                </center>
+                <p>Something went wrong while trying to gallery data.</p>
+                <RouterLink to="/projects" class="btn btn-info mt-2">Go back to projects</RouterLink>
 
-                <a class="btn btn-secondary text-dark" v-on:click="loadGallery">Reload</a>
+                <br/><br/><br/>
             </div>
+            <br/>
         </div>
-
-        <br/>
     </div>
 </template>
 

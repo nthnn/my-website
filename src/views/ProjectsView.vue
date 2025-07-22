@@ -198,8 +198,16 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
         <template v-else-if="allProjects.length === 0">
             <div class="d-block w-100">
                 <br/>
-                <img src="/images/gear.png" class="rotating-gear mt-2" width="32" />
-                <p class="mt-3">Projects are currently being loaded, please wait...</p>
+                <div class="p-4 bg-primary col-12 col-lg-6">
+                    <br/><br/><br/>
+
+                    <center>
+                        <img src="/images/gear.png" class="rotating-gear mt-2" width="72" />
+                    </center>
+                    <p class="mt-3">Projects are currently being loaded, please wait...</p>
+                
+                    <br/><br/><br/>
+                </div>
                 <br/>
             </div>
         </template>
