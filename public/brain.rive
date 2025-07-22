@@ -110,6 +110,12 @@
 - See you too! Take care.
 - Until next time!
 
++ i (want|need) a (website|app|mobile app|program|system) *
+- Here, I've redirected you to the quoting page, so that we can let Nathanne know that you're looking to have business with us! <call>toQuote</call>
+
++ how much would be (your|the) (service|pricing)
+- I'd love to have business with you. Here's the quoting page, you can put the details and we'll let you know! <call>toQuote</call>
+
 + * (name|call) *
 - I don't have a name, but you can call me your assistant!
 
