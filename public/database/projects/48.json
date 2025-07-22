@@ -1,0 +1,5 @@
+{
+    "title": "Offion Browser",
+    "link": "https://github.com/nthnn/offion",
+    "content": "<p>Debian-based personal browser built with Electron framework, integrating Tor for enhanced privacy and anonymous browsing.</p><br/><center><a href=\"/images/projects/project_48_01.png\"><img src=\"/images/projects/project_48_01.png\" class=\"col-12 col-lg-6\" /></a></center><br/><h3 class=\"shimmer\">Getting Started</h3><ol><li>Install the Tor service via APT:<br/><div class=\"mt-2\" style=\"overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;\"><pre style=\"margin: 0; line-height: 125%\"><span style=\"color: #00aa00\">sudo</span> apt install tor</pre></div><br/></li><li>Download Offion from the <a href=\"https://github.com/nthnn/offion/releases\" target=\"_blank\">release</a> page. Both <kbd>*.deb</kbd> package and AppImage bundle is available.</li></ol>"
+}

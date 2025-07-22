@@ -352,6 +352,14 @@
         "category": ["software"]
     },
     {
+        "id": 48,
+        "title": "Offion Browser",
+        "short_description": "Browser with TOR integration",
+        "description": "Debian-based personal web browser built integration on Tor for enhanced privacy and anonymous browsing.",
+        "thumbnail": "project_48",
+        "category": ["software"]
+    },
+    {
         "id": 47,
         "title": "C3E Framework",
         "short_description": "Computing Engine Framework",
