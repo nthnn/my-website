@@ -4,6 +4,7 @@ import HomeView from "@/views/HomeView.vue";
 import GalleryView from "@/views/GalleryView.vue";
 import ProjectsView from "@/views/ProjectsView.vue";
 import ArticleView from "@/views/ArticleView.vue";
+import QuoteView from "@/views/QuoteView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: "/view",
             name: "view",
             component: ArticleView
+        },
+        {
+            path: "/quote",
+            name: "quote",
+            component: QuoteView
         },
         {
             path: "/:catchAll(.*)",
