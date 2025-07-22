@@ -234,7 +234,7 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
         </div>
     </div>
 
-    <nav v-if="totalPages > 1 && filteredProjects.length > 0" aria-label="Project pagination" class="mt-4">
+    <nav v-if="totalPages > 1 && filteredProjects.length > 0" aria-label="Project pagination" class="my-4">
         <ul class="pagination justify-content-center">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
                 <a class="page-link" href="#" @click.prevent="prevPage" aria-label="Previous">
