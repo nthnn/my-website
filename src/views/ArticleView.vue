@@ -96,9 +96,11 @@ const loadArticle = async (id: string | string[])=> {
 
     try {
         const response = await fetch(`./database/projects/${articleId}.json`);
+        const contentType = response.headers.get("Content-Type");
+
         if(!response.ok ||
-            response.headers.get("Content-Type") != "application/json"
-        ) throw new Error(`Failed to fetch project data: ${response.status}`);
+            contentType != "application/json"
+        ) throw new Error(`Failed to fetch project data: ${response.status}, got ` + contentType);
 
         const data = await response.json();
         projectTitle.value = document.title = data.title;
