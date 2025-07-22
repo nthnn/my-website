@@ -120,6 +120,7 @@ const loadArticle = async (id: string | string[])=> {
         await fetchAndSetRandomProjects(articleId);
     }
     catch(error) {
+        console.log(error);
         setTimeout(()=> hasError.value = true, 2200);
         hideLoadingBar(showError);
     }
