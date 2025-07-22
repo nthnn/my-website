@@ -92,12 +92,12 @@ onMounted(()=> {
     <br class="desktop-only"/>
     <br/><br/><br/><br/>
 
-    <div class="w-100 p-4 container">
-        <RouterView />
-        <Footer />
-    </div>
-
     <TantanAI />
+
+    <div class="container">
+        <RouterView />
+    </div>
+    <Footer />
 
     <div class="modal fade" id="announcement" tabindex="-1" aria-labelledby="announcementLabel" aria-hidden="true" data-bs-theme="dark">
         <div class="modal-dialog modal-dialog-centered">
