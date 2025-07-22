@@ -17,7 +17,7 @@ function getCurrentAge(): number {
 </script>
 
 <template>
-    <div class="row">
+    <div class="row mt-4">
         <div class="col-lg-1"></div>
 
         <div class="col-lg-3" align="center">
@@ -37,18 +37,18 @@ function getCurrentAge(): number {
                 <pre class="code desktop-only"><span class="hl-text blue-hover">.learn()</span> <span class="hl-text blue-hover">.code()</span> <span class="hl-text blue-hover">.create()</span></pre>
 
                 <p>{{getCurrentAge()}}-year-old experienced software engineer from Metro Manila, Philippines, with a strong foundation in software engineering, leadership experience, and customer service.</p>
+
+                <h4 class="w-100 mb-4 mobile-only" align="center">
+                    <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
+                    <a href="mailto:nathanneisip@gmail.com?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
+                </h4>
                 <pre class="code mobile-only w-100" align="center"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
 
                 <h4 class="desktop-only mt-3">
                     <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
                     <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://nthnn.medium.com/" target="_blank" class="ms-3 blue-hover"><i class="bi bi-medium"></i></a>
-                </h4>
-
-                <h4 class="w-100 mobile-only" align="center">
-                    <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
-                    <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
-                    <a href="https://nthnn.medium.com/" target="_blank" class="ms-3 blue-hover"><i class="bi bi-medium"></i></a>
+                    <a href="mailto:nathanneisip@gmail.com?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
                 </h4>
             </div>
         </div>
@@ -66,13 +66,5 @@ function getCurrentAge(): number {
 	border: 1px solid rgba(255, 255, 255, 0.25);
 	padding: 3px 12px 3px 12px;
 	width: fit-content;
-}
-
-.blue-hover {
-    transition: all 0.3s ease-in-out;
-}
-
-.blue-hover:hover {
-    color: var(--bs-info) !important;
 }
 </style>
