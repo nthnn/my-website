@@ -350,5 +350,13 @@
         "description": "An antivirus/antimalware program that verifies file hashes against the VirusShare.com database for Windows.",
         "thumbnail": "project_46",
         "category": ["software"]
+    },
+    {
+        "id": 47,
+        "title": "C3E Framework",
+        "short_description": "Computing Engine Framework",
+        "description": "Framework, platform, library, and an engine for complex computational tasks for matrices, vectors, and tensors.",
+        "thumbnail": "project_47",
+        "category": ["software", "firmware"]
     }
 ]
