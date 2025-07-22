@@ -32,7 +32,10 @@ var pageData = reactive({
                         <RouterLink to="/gallery" v-bind:class="pageData.currentRoute == 'gallery' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Gallery</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <RouterLink to="/blogs" v-bind:class="pageData.currentRoute == 'contacts' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Contacts</RouterLink>
+                        <RouterLink to="/quote" v-bind:class="pageData.currentRoute == 'quote' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Quote</RouterLink>
+                    </li>
+                    <li class="nav-item">
+                        <RouterLink to="/contacts" v-bind:class="pageData.currentRoute == 'contacts' ? 'nav-link active' : 'nav-link'" v-on:click="toggleBurger">Contacts</RouterLink>
                     </li>
                     <li class="nav-item">
                         <a target="_blank" href="https://github.com/nthnn" class="nav-link" v-on:click="toggleBurger">GitHub</a>
