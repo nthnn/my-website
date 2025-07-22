@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import RiveScript from 'rivescript/dist/rivescript.min.js';
+import { useRouter } from 'vue-router';
 
 const isOpen = ref(false),
     messages = ref([]),
@@ -9,11 +10,12 @@ const isOpen = ref(false),
 
 let bot: RiveScript = new RiveScript(),
     typingTimeout: number;
+let router = useRouter();
 
 onMounted(()=> {
     bot = new RiveScript();
-    bot.setSubroutine('jsAlert', (rs: string, args: Array<string>)=> {
-        alert(args.join(' '));
+    bot.setSubroutine('toQuote', (rs: string, args: Array<string>)=> {
+        router.push("/quote");
         return '';
     });
 
