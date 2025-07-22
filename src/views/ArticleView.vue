@@ -99,7 +99,7 @@ const loadArticle = async (id: string | string[])=> {
         const contentType = response.headers.get("Content-Type");
 
         if(!response.ok ||
-            contentType?.startsWith("application/json")
+            !contentType?.startsWith("application/json")
         ) throw new Error(
             "Cannot fetch project data: " + response.status +
             ", got " + contentType
@@ -120,7 +120,6 @@ const loadArticle = async (id: string | string[])=> {
         await fetchAndSetRandomProjects(articleId);
     }
     catch(error) {
-        console.log(error);
         setTimeout(()=> hasError.value = true, 2200);
         hideLoadingBar(showError);
     }
