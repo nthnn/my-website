@@ -115,6 +115,7 @@ const loadArticle = async (id: string | string[])=> {
         await fetchAndSetRandomProjects(articleId);
     }
     catch(error) {
+        console.log(error);
         setTimeout(()=> hasError.value = true, 2200);
         hideLoadingBar(showError);
     }
@@ -157,9 +158,9 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
             <div class="p-4 bg-primary col-12 col-lg-6">
                 <br/><br/><br/>
             
-                <center>
+                <div align="center">
                     <img src="/images/gear.png" class="rotating-gear mt-2" width="72" />
-                </center>
+                </div>
                 <p class="mt-3">Article is currently being loaded, please wait...</p>
             
                 <br/><br/><br/>
@@ -174,9 +175,9 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
             <div class="p-4 bg-primary col-12 col-lg-6">
                 <br/><br/><br/>
             
-                <center>
+                <div align="center">
                     <img src="/images/warning.png" class="mt-2" width="72" />
-                </center>
+                </div>
                 <p class="mt-3">Something went wrong while trying to load article.</p>
                 <RouterLink to="/projects" class="btn btn-info mt-2">Go back to projects</RouterLink>
 
