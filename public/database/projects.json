@@ -366,5 +366,13 @@
         "description": "Framework, platform, library, and an engine for complex computational tasks for matrices, vectors, and tensors.",
         "thumbnail": "project_47",
         "category": ["software", "firmware"]
+    },
+    {
+        "id": 49,
+        "title": "Goblin3D",
+        "short_description": "Low-footprint 3D Engine",
+        "description": "Graphics engine for rendering 3D wireframe on monochromatic displays and TFT LCDs without dependency requirement.",
+        "thumbnail": "project_49",
+        "category": ["software", "firmware"]
     }
 ]
