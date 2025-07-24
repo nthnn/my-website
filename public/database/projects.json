@@ -374,5 +374,13 @@
         "description": "Graphics engine for rendering 3D wireframe on monochromatic displays and TFT LCDs without dependency requirement.",
         "thumbnail": "project_49",
         "category": ["software", "firmware"]
+    },
+    {
+        "id": 50,
+        "title": "Brainf*ck Assembly",
+        "short_description": "Human Readable Brainf*ck",
+        "description": "Brainfuck Assembly is a human-readable assembly language to simplify the process of writing Brainfuck programs.",
+        "thumbnail": "project_50",
+        "category": ["software"]
     }
 ]
