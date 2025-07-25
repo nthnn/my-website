@@ -344,6 +344,14 @@
         "category": ["ai"]
     },
     {
+        "id": 51,
+        "title": "sConf",
+        "short_description": "Configuration File Library",
+        "description": "Flexible lightweight C++ library for parsing and managing structured configuration files.",
+        "thumbnail": "project_51",
+        "category": ["software"]
+    },
+    {
         "id": 46,
         "title": "Feihua Anti-Virus",
         "short_description": "Windows Anti-Virus Software",

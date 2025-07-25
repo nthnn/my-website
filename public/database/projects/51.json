@@ -1,0 +1,5 @@
+{
+    "title": "sConf Library",
+    "link": "https://github.com/nthnn/sConf",
+    "content": "<p>sConf is a lightweight and flexible C++ library for parsing, managing, and manipulating structured configuration files. With support for multiple value types, comments, and error handling, sConf is designed to be intuitive and efficient for developers who need robust configuration management in their C++ projects.</p><ul><li><i>Versatile Value Types</i> &mdash; Supports strings, integers, doubles, booleans, dates, and arrays.</li><li><i>Section-Based Structure</i> &mdash; Organize configuration data into sections for easy access and management.</li><li><i>Comments Handling</i> &mdash; Preserve and retrieve comments associated with configuration sections.</li><li><i>Error Handling</i> &mdash; Custom exception handling with detailed error messages.</li><li><i>File Operations</i> &mdash; Load configuration files and save changes back to disk with ease.</li></ul>"
+}
