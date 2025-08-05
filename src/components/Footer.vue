@@ -206,7 +206,7 @@ const showMessageAndModal = (msg: string, type: string) => {
                 </div>
 
                 <div class="col-12 mobile-only">
-                    <h3 class="shimmer">Subscribe to Newletter</h3>
+                    <h3 class="shimmer">Subscribe to Newsletter</h3>
                     <div class="input-group">
                         <input
                             type="email"
