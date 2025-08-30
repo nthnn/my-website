@@ -22,10 +22,17 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
 
         <ul class="timeline mt-4">
             <li class="pb-4">
+                <img src="/images/companies/tdcx.png" width="100" class="mb-2 pb-4" />
+                <h4><b class="fw-bold">TDCX Philippines</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Shaw Boulevard, Mandaluyong)</sup></sub></span></h4>
+                <h4><span class="fw-light">E-Commerce Sales Representative</span></h4>
+                <small class="fw-light">September 2025 - Present</small>
+		<ul class="mt-2">                                                   <li>Guide customers through the platform, helping them with product searches, account setup, and checkout processes.</li>                                                                           <li>Identify sales opportunities and apply upselling and cross-selling techniques to increase revenue and meet sales targets.</li>                                                                     <li>Monitor and analyze chat performance metrics, first-contact resolution and chat handle time, to improve personal performance.</li>                                               </ul>
+            </li>
+            <li class="pb-4">
                 <img src="/images/companies/concentrix.png" width="240" class="mb-2 pb-4" />
                 <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Cubao, Quezon City)</sup></sub></span></h4>
                 <h4><span class="fw-light">Wireless Support Specialist</span></h4>
-                <small class="fw-light">August 2024 - August 2025</small>
+                <small class="fw-light">August 2024 - September 2025</small>
 
                 <ul class="mt-2">
                     <li>Provided excellent customer service to telecommunication company clients, resolving inquiries and issues efficiently.</li>
@@ -34,7 +41,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
                 </ul>
 
                 <h4 class="pt-4"><span class="fw-light">Software Quality Analyst (Internship)</span></h4>
-                <small class="fw-light">March 2025 - Present</small>
+                <small class="fw-light">March 2025 - May 2025</small>
 
                 <ul class="mt-2">
                     <li>Internship entry-level role focused on maintaining software application quality that enhances the internal team experience.</li>
