@@ -60,7 +60,7 @@ onMounted(() => {
         db.value = firestoreDb;
         auth.value = firebaseAuth;
 
-        onAuthStateChanged(firebaseAuth, async (user) => {
+        onAuthStateChanged(firebaseAuth, async (user: any) => {
             if(user) {
                 userId.value = user.uid;
                 isAuthReady.value = true;
@@ -135,10 +135,10 @@ const validateForm = (): boolean => {
     }
 
     if(description.value.trim().length < 10 ||
-        description.value.trim().length > 500
+        description.value.trim().length > 16384
     ) {
         showMessageAndModal(
-            "Description must be between 10 and 500 characters.",
+            "Description must be between 10 and 16,384 characters.",
             "error"
         );
         return false;
@@ -178,7 +178,6 @@ const handleSubmit = async() => {
             userId: userId.value
         };
 
-
         await addDoc(
             quotesCollectionRef,
             quoteData
@@ -215,69 +214,72 @@ onBeforeRouteLeave(()=> clearInterval(animateInterval));
 </script>
 
 <template>
-    <div class="d-flex align-items-center justify-content-center main-wrapper">
-        <div class="card quote-card bg-primary border border-gray w-100">
-            <div class="row g-0 quote-card-row m-0 p-0">
-                <div class="col-12 mobile-only">
-                    <img src="/images/quote-wallpaper.webp" class="w-100 border-gray border-bottom" />
+    <div class="card bg-primary border border-gray w-100 p-4">
+        <h1>Contact Details</h1>
+    </div>
+    <br/>
+
+    <div class="card quote-card bg-primary border border-gray w-100">
+        <div class="row g-0 quote-card-row m-0 p-0">
+            <div class="col-12 mobile-only">
+                <img src="/images/quote-wallpaper.webp" class="w-100 border-gray border-bottom" />
+            </div>
+
+            <div class="col-12 col-lg-4 desktop-only image-col">
+                <div class="image-container">
+                    <img src="/images/quote-wallpaper.webp" class="quote-wallpaper-img" alt="Quote Wallpaper" />
                 </div>
+            </div>
 
-                <div class="col-12 col-lg-4 desktop-only image-col">
-                    <div class="image-container">
-                        <img src="/images/quote-wallpaper.webp" class="quote-wallpaper-img" alt="Quote Wallpaper" />
-                    </div>
-                </div>
+            <div class="col-12 col-lg-8 form-col">
+                <div class="border-gray border-start p-4 p-md-5">
+                    <h1 class="text-center shimmer">Request a Quote</h1>
+                    <hr class="mobile-only"/>
 
-                <div class="col-12 col-lg-8 form-col">
-                    <div class="border-gray border-start p-4 p-md-5">
-                        <h1 class="text-center shimmer">Request a Quote</h1>
-                        <hr class="mobile-only"/>
+                    <div class="desktop-only my-4"></div>
+                    <form @submit.prevent="handleSubmit">
+                        <div class="mb-3">
+                            <label for="name" class="form-label text-white">Name</label>
+                            <input
+                                type="text"
+                                class="form-control border border-gray bg-primary text-white"
+                                id="name"
+                                v-model="name"
+                                autocomplete="off"
+                                placeholder="Your Full Name" />
+                        </div>
 
-                        <div class="desktop-only my-4"></div>
-                        <form @submit.prevent="handleSubmit">
-                            <div class="mb-3">
-                                <label for="name" class="form-label text-white">Name</label>
-                                <input
-                                    type="text"
-                                    class="form-control border border-gray bg-primary text-white"
-                                    id="name"
-                                    v-model="name"
-                                    autocomplete="off"
-                                    placeholder="Your Full Name" />
-                            </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-white">Email address</label>
+                            <input
+                                type="email"
+                                class="form-control border border-gray bg-primary text-white"
+                                id="email"
+                                v-model="email"
+                                autocomplete="off"
+                                placeholder="name@example.com"
+                            />
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="email" class="form-label text-white">Email address</label>
-                                <input
-                                    type="email"
-                                    class="form-control border border-gray bg-primary text-white"
-                                    id="email"
-                                    v-model="email"
-                                    autocomplete="off"
-                                    placeholder="name@example.com"
-                                />
-                            </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label text-white">Quote Description</label>
+                            <textarea
+                                class="form-control border border-gray bg-primary text-white"
+                                id="description"
+                                rows="4"
+                                v-model="description"
+                                placeholder="Please describe what you need a quote for (e.g., website design, custom software, event planning)."
+                            ></textarea>
+                        </div>
 
-                            <div class="mb-3">
-                                <label for="description" class="form-label text-white">Quote Description</label>
-                                <textarea
-                                    class="form-control border border-gray bg-primary text-white"
-                                    id="description"
-                                    rows="4"
-                                    v-model="description"
-                                    placeholder="Please describe what you need a quote for (e.g., website design, custom software, event planning)."
-                                ></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                class="btn btn-info w-100 fw-bold"
-                                :disabled="loading || !isAuthReady"
-                            >
-                                {{ loading ? "Submitting..." : "Submit Quote Request" }}
-                            </button>
-                        </form>
-                    </div>
+                        <button
+                            type="submit"
+                            class="btn btn-info w-100 fw-bold"
+                            :disabled="loading || !isAuthReady"
+                        >
+                            {{ loading ? "Submitting..." : "Submit Quote Request" }}
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
