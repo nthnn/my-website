@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import HomeView from "@/views/HomeView.vue";
-import GalleryView from "@/views/GalleryView.vue";
-import ProjectsView from "@/views/ProjectsView.vue";
 import ArticleView from "@/views/ArticleView.vue";
-import QuoteView from "@/views/QuoteView.vue";
+import ContactsView from "@/views/ContactsView.vue";
+import GalleryView from "@/views/GalleryView.vue";
+import HomeView from "@/views/HomeView.vue";
+import ProjectsView from "@/views/ProjectsView.vue";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,9 +30,9 @@ const router = createRouter({
             component: ArticleView
         },
         {
-            path: "/quote",
-            name: "quote",
-            component: QuoteView
+            path: "/contacts",
+            name: "contacts",
+            component: ContactsView
         },
         {
             path: "/:catchAll(.*)",
