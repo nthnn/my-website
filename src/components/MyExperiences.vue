@@ -22,14 +22,18 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
 
         <ul class="timeline mt-4">
             <li class="pb-4">
-                <img src="/images/companies/tdcx.png" width="100" class="mb-2 pb-4" />
+                <a href="https://www.tdcx.com/" target="_blank"><img src="/images/companies/tdcx.png" width="100" class="mb-2 pb-4" /></a>
                 <h4><b class="fw-bold">TDCX Philippines</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Shaw Boulevard, Mandaluyong)</sup></sub></span></h4>
                 <h4><span class="fw-light">E-Commerce Sales Representative</span></h4>
                 <small class="fw-light">September 2025 - Present</small>
-		<ul class="mt-2">                                                   <li>Guide customers through the platform, helping them with product searches, account setup, and checkout processes.</li>                                                                           <li>Identify sales opportunities and apply upselling and cross-selling techniques to increase revenue and meet sales targets.</li>                                                                     <li>Monitor and analyze chat performance metrics, first-contact resolution and chat handle time, to improve personal performance.</li>                                               </ul>
+                <ul class="mt-2">
+                    <li>Guide customers through the platform, helping them with product searches, account setup, and checkout processes.</li>
+                    <li>Identify sales opportunities and apply upselling and cross-selling techniques to increase revenue and meet sales targets.</li>
+                    <li>Monitor and analyze chat performance metrics, first-contact resolution and chat handle time, to improve personal performance.</li>
+                </ul>
             </li>
             <li class="pb-4">
-                <img src="/images/companies/concentrix.png" width="240" class="mb-2 pb-4" />
+                <a href="https://concentrix.com/" target="_blank"><img src="/images/companies/concentrix.png" width="240" class="mb-2 pb-4" /></a>
                 <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Cubao, Quezon City)</sup></sub></span></h4>
                 <h4><span class="fw-light">Wireless Support Specialist</span></h4>
                 <small class="fw-light">August 2024 - September 2025</small>
@@ -50,7 +54,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
                 </ul>
             </li>
             <li class="pb-4">
-                <img src="/images/companies/upwork.png" width="160" class="mb-2 pb-4" />
+                <a href="https://www.upwork.com/" target="_blank"><img src="/images/companies/upwork.png" width="160" class="mb-2 pb-4" /></a>
                 <h4><b class="fw-bold">Virtual Assistance</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Remote Job)</sup></sub></span></h4>
                 <h4><span class="fw-light">Healthcare Administrative Assistant</span></h4>
                 <small class="fw-light">January 2024 - June 2024</small>
