@@ -15,7 +15,7 @@ let router = useRouter();
 onMounted(()=> {
     bot = new RiveScript();
     bot.setSubroutine('toQuote', (rs: string, args: Array<string>)=> {
-        router.push("/quote");
+        router.push("/contacts#quote");
         return '';
     });
 
