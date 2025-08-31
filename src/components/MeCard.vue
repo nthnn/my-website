@@ -41,14 +41,14 @@ function getCurrentAge(): number {
                 <h4 class="w-100 mb-4 mobile-only" align="center">
                     <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
                     <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
-                    <a href="mailto:nathanneisip@gmail.com?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
+                    <a href="mailto:nathanne@nthnn.dev?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
                 </h4>
                 <pre class="code mobile-only w-100" align="center"><span class="hl-text">.learn()</span> <span class="hl-text">.code()</span> <span class="hl-text">.create()</span></pre>
 
                 <h4 class="desktop-only mt-3">
                     <a href="https://github.com/nthnn" target="_blank" class="blue-hover"><i class="bi bi-github"></i></a>
                     <a href="https://www.linkedin.com/in/nathannestein" target="_blank" class="ms-3 blue-hover"><i class="bi bi-linkedin"></i></a>
-                    <a href="mailto:nathanneisip@gmail.com?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
+                    <a href="mailto:nathanne@nthnn.dev?subject=Re:Resume%20%3e%3e%20Nathanne%20Isip" target="_blank" class="ms-3 blue-hover"><i class="bi bi-google"></i></a>
                 </h4>
             </div>
         </div>
