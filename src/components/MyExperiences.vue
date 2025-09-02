@@ -21,7 +21,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
         </div>
 
         <ul class="timeline mt-4">
-            <li class="pb-4">
+            <!--<li class="pb-4">
                 <a href="https://www.tdcx.com/" target="_blank"><img src="/images/companies/tdcx.png" width="100" class="mb-2 pb-4" /></a>
                 <h4><b class="fw-bold">TDCX Philippines</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Shaw Boulevard, Mandaluyong)</sup></sub></span></h4>
                 <h4><span class="fw-light">E-Commerce Sales Representative</span></h4>
@@ -31,7 +31,7 @@ import CurriculumVitaeButton from './CurriculumVitaeButton.vue';
                     <li>Identify sales opportunities and apply upselling and cross-selling techniques to increase revenue and meet sales targets.</li>
                     <li>Monitor and analyze chat performance metrics, first-contact resolution and chat handle time, to improve personal performance.</li>
                 </ul>
-            </li>
+            </li>-->
             <li class="pb-4">
                 <a href="https://concentrix.com/" target="_blank"><img src="/images/companies/concentrix.png" width="240" class="mb-2 pb-4" /></a>
                 <h4><b class="fw-bold">Concentrix</b><span class="fw-light">&nbsp;<sub><br class="mobile-only" /><sup>(Cubao, Quezon City)</sup></sub></span></h4>
